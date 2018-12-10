@@ -1,0 +1,64 @@
+body {
+  background-color: var(--bg-color);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar {
+  width: 100vw;
+  height: 10vh;
+  padding: 2vh;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.nav-link {
+  color: var(--txt-color);
+  text-decoration: none;
+  font-size: 2vh;
+}
+
+.login-form {
+  width: 80vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 3vh;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 20%;
+  margin-bottom: 5vh;
+  justify-content: space-around;
+}
+
+.form-text {
+  font-size: 2vh;
+}
+
+label {
+  font-size: 2vh;
+}
+
+input {
+  height: 4vh;
+}
+
+button {
+  width: 25%;
+  height: 10%;
+  font-size: 3vh;
+  background-color: rgb(152, 86, 170);
+}

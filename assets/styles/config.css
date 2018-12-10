@@ -1,0 +1,13 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica';
+}
+
+:root {
+  --bg-color: rgb(235, 206, 237);
+  --txt-color: rgb(0, 0, 0);
+}
