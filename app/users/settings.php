@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 require __DIR__.'/../autoload.php';
 
-// die(var_dump(pathinfo($_FILES['avatar']['name'])['extension']));
-
 if (isset($_FILES['avatar'])) {
     $avatar = $_FILES['avatar'];
     $extension = pathinfo($_FILES['avatar']['name'])['extension'];
@@ -32,6 +30,7 @@ if (isset($_FILES['avatar'])) {
         move_uploaded_file($avatar['tmp_name'], $filePath.$avatarName);
     }
 
+    $_SESSION['user']['avatar'] = $avatarName;
 
 }
 
