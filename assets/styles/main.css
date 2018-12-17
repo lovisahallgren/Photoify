@@ -1,71 +1,75 @@
 body {
-  background-color: var(--bg-color);
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    background-color: var(--bg-color);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .navbar {
-  width: 100vw;
-  height: 10vh;
-  padding: 2vh;
+    width: 100vw;
+    height: 10vh;
+    padding: 2vh;
 }
 
 .navbar-nav {
-  display: flex;
-  justify-content: space-around;
-  list-style: none;
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
 }
 
 .nav-link {
-  color: var(--txt-color);
-  text-decoration: none;
-  font-size: 2vh;
+    color: var(--txt-color);
+    text-decoration: none;
+    font-size: 2vh;
 }
 
 .login-form {
-  width: 80vw;
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 3vh;
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vh;
 }
 
 .form-group {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  height: 20%;
-  justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 20%;
+    justify-content: space-around;
 }
 
 .form-text {
-  font-size: 2vh;
+    font-size: 2vh;
 }
 
 form a {
-  text-decoration: none;
-  color: var(--txt-color);
-  margin-top: 7vh;
-  font-size: 0.6em;
+    text-decoration: none;
+    color: var(--txt-color);
+    margin-top: 7vh;
+    font-size: 0.6em;
 }
 
 label {
-  font-size: 2vh;
+    font-size: 2vh;
 }
 
 input {
-  height: 4vh;
+    height: 4vh;
 }
 
 button {
-  width: 25%;
-  height: 10%;
-  font-size: 3vh;
-  background-color: rgb(152, 86, 170);
-  margin-top: 5vh;
+    width: 25%;
+    height: 10%;
+    font-size: 3vh;
+    background-color: rgb(152, 86, 170);
+    margin-top: 5vh;
+}
+
+img {
+    width: 20%;
 }

@@ -1,6 +1,8 @@
 <?php
 
 require __DIR__.'/views/header.php';
+// die(var_dump($_SESSION['user']['user_name']));
+die(var_dump(__DIR__.'/app/users/avatar/'.$_SESSION['user']['avatar']));
 ?>
 
 
