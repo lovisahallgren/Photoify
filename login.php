@@ -14,4 +14,6 @@
     </div><!-- /form-group -->
 
     <button type="submit" class="btn">Login</button>
+
+    <a href="/create.php">Click here to create an account!</a>
 </form>
