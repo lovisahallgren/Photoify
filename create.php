@@ -17,8 +17,8 @@
         </div><!-- /form-group -->
 
         <div class="form-group">
-            <label for="username">Username</label>
-            <input class="form-control" type="username" name="username" required>
+            <label for="user_name">Username</label>
+            <input class="form-control" type="user_name" name="user_name" required>
             <small class="form-text text-muted">Please provide a username.</small>
         </div><!-- /form-group -->
 
