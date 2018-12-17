@@ -18,6 +18,10 @@
         <?php elseif(isset($_SESSION['user'])): ?>
 
         <li class="nav-item">
+            <a class="nav-link" href="./profile.php">My profile</a>
+        </li>
+
+        <li class="nav-item">
             <a class="nav-link" href="/app/users/logout.php">Logout</a>
         </li>
 
