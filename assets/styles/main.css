@@ -4,7 +4,7 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .navbar {
@@ -67,7 +67,7 @@ button {
     height: 10%;
     font-size: 3vh;
     background-color: rgb(152, 86, 170);
-    margin-top: 5vh;
+    /* margin-top: 5vh; */
 }
 
 img {
