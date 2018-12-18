@@ -1,0 +1,38 @@
+.profile-page {
+    width: 100vw;
+    height: 100vh;
+    margin: 5vh 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.form-group {
+    /* display: flex; */
+    width: 50%;
+    /* height: 10%; */
+}
+
+.confirm-group {
+    /* display: flex;
+    flex-direction: column; */
+    width: 50%;
+    /* height: 40%; */
+    /* justify-content: space-around; */
+}
+
+.confirm-btn {
+    width: 25%;
+    height: 20%;
+    font-size: 1.2vw;
+    /* justify-content: space-around; */
+}
+
+.form-control {
+    width: 50%;
+}
+
+.bio-field {
+    width: 50%;
+    height: 60%;
+}
