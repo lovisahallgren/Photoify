@@ -64,26 +64,26 @@ if (isset($_FILES['avatar'])) {
 
     $currentEmailDb = $statement->fetch(PDO::FETCH_ASSOC);
 
-// Checks if typed in current password matches password in database
+// Checks if typed in current email matches email in database
     if ($currentEmail == $currentEmailDb['email']) {
 
-// Checks if twice typed in new password matches
+// Checks if twice typed in new email matches
         if ($newEmail == $repeatNewEmail) {
 
-// If yes update password in database
+// If yes update email in database
             $statement = $pdo->prepare('UPDATE users SET email = :email WHERE id = :id');
-// hash password to database
+
             $statement->bindParam(':email', $newEmail, PDO::PARAM_STR);
             $statement->bindParam(':id', $id, PDO::PARAM_INT);
 
             $statement->execute();
 
-        // If new passwords don't match, die page and echo something
+        // If new emails don't match, die page and echo something
         } else {
             die("New emails don't match!");
         }
 
-        // If old password don't match database password, die page and echo something
+        // If old email don't match database email, die page and echo something
     } else {
         echo die("Old email doesn't match!");
     }

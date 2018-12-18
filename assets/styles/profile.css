@@ -5,27 +5,23 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    padding-top: 15%;
 }
 
 .form-group {
-    /* display: flex; */
     width: 50%;
-    /* height: 10%; */
+    height: 80%;
+    margin-top: 5%;
 }
 
 .confirm-group {
-    /* display: flex;
-    flex-direction: column; */
     width: 50%;
-    /* height: 40%; */
-    /* justify-content: space-around; */
 }
 
 .confirm-btn {
     width: 25%;
     height: 20%;
     font-size: 1.2vw;
-    /* justify-content: space-around; */
 }
 
 .form-control {
