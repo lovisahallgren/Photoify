@@ -19,6 +19,10 @@
 
         <li class="nav-item">
             <a class="nav-link" href="./profile.php">My profile</a>
+            <ul>
+                <a class="nav-item">Posts</a>
+                <a class="nav-item" href="./app/users/settings.php">Edit profile</a>
+            </ul>
         </li>
 
         <li class="nav-item">

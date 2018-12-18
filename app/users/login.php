@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 require __DIR__.'/../autoload.php';
 
+// Checks if both email and password is set
 if (isset($_POST['email'], $_POST['password'])) {
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 
@@ -19,10 +20,12 @@ if (isset($_POST['email'], $_POST['password'])) {
 
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
+// Checks if user exists in database
     if (!$user) {
         redirect('/login.php');
     }
 
+// Checks if password is the same as in database
     if (password_verify($_POST['password'], $user['password'])) {
         unset($user['password']);
 
