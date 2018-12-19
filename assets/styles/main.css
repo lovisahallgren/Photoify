@@ -35,25 +35,6 @@ body {
     font-size: 3vh;
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    height: 20%;
-    justify-content: space-around;
-}
-
-.form-text {
-    font-size: 2vh;
-}
-
-form a {
-    text-decoration: none;
-    color: var(--txt-color);
-    margin-top: 7vh;
-    font-size: 0.6em;
-}
-
 label {
     font-size: 2vh;
 }
@@ -67,7 +48,7 @@ button {
     height: 10%;
     font-size: 3vh;
     background-color: rgb(152, 86, 170);
-    /* margin-top: 5vh; */
+    font-size: 1.2vw;
 }
 
 img {
