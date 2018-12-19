@@ -49,6 +49,8 @@ if (isset($_FILES['avatar'])) {
 
     $statement->execute();
 
+    $_SESSION['user']['biography'] = $biography;
+
     //Checks if email is set
 } else if (isset($_POST['current-email'], $_POST['new-email'], $_POST['repeat-new-email'])) {
     $currentEmail = $_POST['current-email'];
@@ -85,7 +87,7 @@ if (isset($_FILES['avatar'])) {
 
         // If old email don't match database email, die page and echo something
     } else {
-        echo die("Old email doesn't match!");
+         die("Old email doesn't match!");
     }
 
     //Checks if password is set
@@ -125,7 +127,7 @@ if (isset($_FILES['avatar'])) {
 
         // If old password don't match database password, die page and echo something
     } else {
-        echo die("Old password doesn't match!");
+         die("Old password doesn't match!");
     }
 }
 
