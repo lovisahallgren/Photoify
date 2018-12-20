@@ -1,5 +1,6 @@
 <?php require __DIR__.'/views/header.php'; ?>
 
+<section class="login-page">
 
 <form class="login-form" action="app/users/login.php" method="post">
     <div class="form-group">
@@ -16,4 +17,8 @@
 </form>
 
 <a href="/create.php">Click here to create an account!</a>
+
+</section>
+
+
 <?php require __DIR__.'/views/footer.php'; ?>

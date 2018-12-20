@@ -5,22 +5,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    /* font-size: 3vh; */
 }
 .create-account-form .form-group {
     height: 80vh;
-    /* justify-content: space-around; */
 }
-/*
-.create-account-form input {
-    width: 90%;
-    height: 45%;
-}
-
-.create-account-form label {
-    font-size: 4vw;
-}
-
-.create-account-form small {
-    font-size: 3vw;
-} */

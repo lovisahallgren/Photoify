@@ -1,7 +1,6 @@
 body {
     background-color: var(--bg-color);
     width: 100vw;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,7 +8,20 @@ body {
     font-family: var(--font-fam);
 }
 
+article {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 h1 {
+    font-size: 2em;
+}
+
+h2 {
     font-size: 1em;
     margin: 0% 0% 5% 5%;
 }
@@ -21,12 +33,16 @@ label {
 input {
     width: 100%;
     height: 5vh;
-    /* background-color: var(--txt-color); */
-    /* color: var(--bg-color); */
+    text-align: center;
+    /* border: 1px solid var(--input-color); */
 }
 
 small {
     font-size: 3.5vw;
+}
+
+li {
+    margin: 5%;
 }
 
 .btn-primary {
@@ -49,7 +65,7 @@ small {
 }
 
 img {
-    width: 20%;
+    width: 50%;
 }
 
 a {

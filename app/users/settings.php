@@ -98,4 +98,4 @@ if (isset($_POST['biography'])) {
     }
 }
 
-redirect('/../profile.php');
+redirect('/../settings.php');
