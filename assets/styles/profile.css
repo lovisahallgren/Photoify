@@ -7,13 +7,13 @@
     justify-content: space-around;
 }
 
-.form-group {
+/* .form-group {
     width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-}
+} */
 
 .update-btn {
     width: 15%;
@@ -22,9 +22,9 @@
     background-color: rgb(152, 86, 170);
 }
 
-.form-control {
+/* .form-control {
     width: 50%;
-}
+} */
 
 .bio-field {
     width: 50%;

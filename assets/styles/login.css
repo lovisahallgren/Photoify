@@ -1,0 +1,9 @@
+.login-form {
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    /* font-size: 3vh; */
+}
