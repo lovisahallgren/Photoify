@@ -10,18 +10,16 @@ require __DIR__.'/views/header.php';
             <input class="avatar-input" type="file" accept=".jpeg" name="avatar" required>
             <button class="btn-primary" type="submit" name="button">Upload</button>
         </div>
-
-        <?php if (isset($_SESSION['user'])): ?>
-            <img src="<?= '/app/users/avatar/'.$_SESSION['user']['avatar']?>" alt="">
-        <?php endif; ?>
     </form><!-- /form-group -->
 
     <form class="settings-group" action="/app/users/settings.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="biography">Write something in your biography</label>
-            <textarea class="bio-field" name="biography" placeholder="<?php if (isset($_SESSION['user'])) {
-            echo $_SESSION['user']['biography'];
-            }?>"></textarea>
+            <textarea class="bio-field" name="biography"
+            placeholder="<?= $_SESSION['user']['biography'];?>"></textarea>
+
+            <label for="username">Change username</label>
+            <input class="form-control" type="text" name="username" placeholder="<?= $_SESSION['user']['user_name']?>">
 
             <label for="email">Change email</label>
             <input class="form-control" type="email" name="current-email" placeholder="current email">

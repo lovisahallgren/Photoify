@@ -5,7 +5,7 @@ declare(strict_types=1);
 require __DIR__.'/../autoload.php';
 
 if (isset($_POST['biography'])) {
-    $biography = $_POST['biography'];
+    $biography = trim(filter_var($_POST['biography'], FILTER_SANITIZE_STRING));
     $id = (int) $_SESSION['user']['id'];
 
 // Updates the database column biography with set text
@@ -19,10 +19,11 @@ if (isset($_POST['biography'])) {
     $_SESSION['user']['biography'] = $biography;
 
     //Checks if email is set
-} else if (isset($_POST['current-email'], $_POST['new-email'], $_POST['repeat-new-email'])) {
-    $currentEmail = $_POST['current-email'];
-    $newEmail = $_POST['new-email'];
-    $repeatNewEmail = $_POST['repeat-new-email'];
+}
+if (isset($_POST['current-email'], $_POST['new-email'], $_POST['repeat-new-email'])) {
+    $currentEmail = trim(filter_var($_POST['current-email'], FILTER_SANITIZE_EMAIL));
+    $newEmail = trim(filter_var($_POST['new-email'], FILTER_SANITIZE_EMAIL));
+    $repeatNewEmail = trim(filter_var($_POST['repeat-new-email'], FILTER_SANITIZE_EMAIL));
     $id = (int) $_SESSION['user']['id'];
 
     $statement = $pdo->query('SELECT email FROM users WHERE id = :id');
@@ -49,16 +50,17 @@ if (isset($_POST['biography'])) {
 
         // If new emails don't match, die page and echo something
         } else {
-            die("New emails don't match!");
+            $message = "New emails don't match!";
         }
 
         // If old email don't match database email, die page and echo something
     } else {
-         die("Old email doesn't match!");
+         $message = "Old email doesn't match!";
     }
 
     //Checks if password is set
-} else if (isset($_POST['current-password'], $_POST['new-password'], $_POST['repeat-new-password'])) {
+}
+ if (isset($_POST['current-password'], $_POST['new-password'], $_POST['repeat-new-password'])) {
     $currentPassword = $_POST['current-password'];
     $newPassword = $_POST['new-password'];
     $repeatNewPassword = $_POST['repeat-new-password'];
@@ -89,12 +91,12 @@ if (isset($_POST['biography'])) {
 
         // If new passwords don't match, die page and echo something
         } else {
-            die("New passwords don't match!");
+            $message = "New passwords don't match!";
         }
 
         // If old password don't match database password, die page and echo something
     } else {
-         die("Old password doesn't match!");
+         $message = "Old password doesn't match!";
     }
 }
 

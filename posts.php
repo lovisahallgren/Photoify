@@ -1,14 +1,15 @@
 <?php require __DIR__.'/views/header.php';?>
 
 
-<form class="upload-image-group" action="/app/posts/store.php" method="post" enctype="multipart/form-data">
+<form class="image-group" action="/app/posts/store.php" method="post" enctype="multipart/form-data">
     <div class="form-group">
-        <label for="upload-image">Choose an image to upload</label>
-        <input type="file" accept=".jpeg" name="upload-image" required>
-        <button class="confirm-btn" type="submit" name="button">Upload</button>
-
+        <label for="image">Choose an image to upload</label>
+        <input class="image-input" type="file" accept=".jpeg" name="image" required>
+        <label for="description">Description</label>
+        <textarea class="description-field" name="description"
+        placeholder="Write something here"></textarea>
+        <button class="btn-primary" type="submit" name="button">Upload</button>
     </div>
-</form>
-
+</form><!-- /form-group -->
 
 <?php require __DIR__.'/views/footer.php';?>

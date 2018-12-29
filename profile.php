@@ -41,6 +41,12 @@ require __DIR__.'/views/header.php';
         } ?>
     </div>
 
+    <article class="posts">
+        <div class="image">
+            <img src="<?= 'app/posts/uploads/'.getPostsByUser($_SESSION['user']['id'], $posts)?>" alt="">
+        </div>
+    </article>
+
 </section>
 <?php
 

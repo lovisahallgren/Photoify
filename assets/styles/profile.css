@@ -1,0 +1,66 @@
+.profile-page {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.username {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: -7vh 0vh 8vh 0vh;
+}
+
+.edit-div {
+    width: 90%;
+    height: 20vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.avatar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+.avatar img {
+    width: 80%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.name,
+.biography {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+    height: 4vh;
+}
+
+.name {
+    font-weight: bold;
+    margin-top: 1vh;
+}
+
+.edit-profile {
+    width: 50%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--input-color);
+}
+
+.edit-profile a {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--btn-text);
+    margin: 0;
+}

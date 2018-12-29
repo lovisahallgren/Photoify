@@ -28,10 +28,11 @@ if (isset($_POST['name'], $_POST['email'], $_POST['user_name'], $_POST['password
 
         $statement->execute();
 
-
         $user = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        $_SESSION['message'] = 'You created an account! Please login in again.';
     } else {
-        die("Your passwords don't match!");
+        $_SESSION['message'] = "Your passwords don't match!";
     }
 
     redirect('/login.php');
