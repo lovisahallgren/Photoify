@@ -1,6 +1,8 @@
 <?php
 
 require __DIR__.'/views/header.php';
+
+// $posts = getPostsByUser($_SESSION['user']['id'], $pdo);
 ?>
 
 <section class="profile-page">
@@ -42,9 +44,12 @@ require __DIR__.'/views/header.php';
     </div>
 
     <article class="posts">
+        <?php $posts = getPostsByUser($_SESSION['user']['id'], $pdo);?>
+        <?php foreach ($posts as $post) : ?>
         <div class="image">
-            <img src="<?= 'app/posts/uploads/'.getPostsByUser($_SESSION['user']['id'], $posts)?>" alt="">
+            <img src="<?= 'app/posts/uploads/'.$_SESSION['user']['id'].'/'.$post['image']?>" alt="">
         </div>
+    <?php endforeach; ?>
     </article>
 
 </section>

@@ -17,7 +17,7 @@ if (!function_exists('redirect')) {
     }
 }
 
-function getPostsByUser(int $id, string $pdo) {
+function getPostsByUser(int $id, $pdo) {
 
         $fileName = '/uploads/'.$id;
 
@@ -30,12 +30,12 @@ function getPostsByUser(int $id, string $pdo) {
         $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 
-        for ($i=0; $i < count($posts); $i++) {
-            die(var_dump($posts));
-            if (file_exists($fileName.'/'.$posts[$i]['image'])) {
-                return $posts[$i]['image'];
-            }
-        }
+        // for ($i=0; $i < count($posts); $i++) {
+        //     die(var_dump($posts));
+        //     if (file_exists($fileName.'/'.$posts[$i]['image'])) {
+        //         return $posts[$i]['image'];
+        //     }
+        // }
 
         return $posts;
         // die(var_dump($posts));
