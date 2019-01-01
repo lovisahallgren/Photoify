@@ -21,7 +21,7 @@ function getPostsByUser(int $id, $pdo) {
 
         $fileName = '/uploads/'.$id;
 
-        $statement = $pdo->prepare('SELECT * FROM posts WHERE user_id = :user_id');
+        $statement = $pdo->prepare('SELECT * FROM posts WHERE user_id = :user_id ORDER BY created_at DESC');
 
         $statement->bindParam(':user_id', $id, PDO::PARAM_INT);
 

@@ -46,7 +46,7 @@ require __DIR__.'/views/header.php';
     <article class="posts">
         <?php $posts = getPostsByUser($_SESSION['user']['id'], $pdo);?>
         <?php foreach ($posts as $post) : ?>
-        <div class="image">
+        <div class="small-post">
             <img src="<?= 'app/posts/uploads/'.$_SESSION['user']['id'].'/'.$post['image']?>" alt="">
         </div>
     <?php endforeach; ?>
