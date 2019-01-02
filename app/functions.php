@@ -19,8 +19,6 @@ if (!function_exists('redirect')) {
 
 function getPostsByUser(int $id, $pdo) {
 
-        $fileName = '/uploads/'.$id;
-
         $statement = $pdo->prepare('SELECT * FROM posts WHERE user_id = :user_id ORDER BY created_at DESC');
 
         $statement->bindParam(':user_id', $id, PDO::PARAM_INT);
@@ -29,16 +27,18 @@ function getPostsByUser(int $id, $pdo) {
 
         $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-
-        // for ($i=0; $i < count($posts); $i++) {
-        //     die(var_dump($posts));
-        //     if (file_exists($fileName.'/'.$posts[$i]['image'])) {
-        //         return $posts[$i]['image'];
-        //     }
-        // }
-
         return $posts;
-        // die(var_dump($posts));
 }
 
-// die(var_dump(getPostsByUser(3, "hej")));
+function getAllPosts($image, $pdo) {
+
+        $statement = $pdo->prepare('SELECT * FROM posts ORDER BY created_at DESC');
+
+        // $statement->bindParam(':user_id', $id, PDO::PARAM_INT);
+
+        $statement->execute();
+
+        $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        return $posts;
+}

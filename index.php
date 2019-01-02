@@ -14,6 +14,13 @@ require __DIR__.'/views/header.php';
     <?php endif; ?>
 </article>
 
+<section>
+    <?php $posts = getAllPosts($_SESSION['user'], $pdo);?>
+    <?php foreach ($posts as $post): ?>
+        <img src="<?= 'app/posts/uploads/'.$_SESSION['user']['id'].'/'.$post['image']?>" alt="">
+    <?php endforeach; ?>
+</section>
+
 
 
 <?php
