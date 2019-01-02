@@ -68,6 +68,7 @@
 
 .posts {
     width: 100%;
+    /* height: auto; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -86,15 +87,169 @@
 }
 
 .big-post {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: auto;
     background-color: var(--btn-text);
-    position: fixed;
+    position: absolute;
     top: 10%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    /* z-index: -1; */
     transition: transform 0.4s ease;
+    padding-bottom: 10%;
 }
 
 .big-post img {
     width: 90%;
     height: 60%;
+    margin: 10%;
+    padding: 0;
+    border: 3px solid var(--input-color);
+}
+
+.small-post i {
+    display: none;
+}
+
+.small-post p {
+    display: none;
+}
+
+.small-post button {
+    display: none;
+}
+
+.exit {
+    position: absolute;
+    top: 8.5%;
+    left: 92%;
+    margin: 2vh 2vh 0 0;
+    font-size: 2em;
+    z-index: 1;
+}
+
+.big-post i {
+    display: flex;
+}
+
+.big-post p {
+    display: block;
+}
+
+.description {
+    display: flex;
+    width: 100%;
+    height: auto;
+    padding: 2vh;
+}
+
+.big-post .username-post {
+    font-weight: bold;
+    margin: 0 5vw 0 3vw;
+}
+
+.post-date {
+    font-size: 0.8em;
+    font-weight: 200;
+    margin-left: 6vw;
+}
+
+.like {
+    display: flex;
+    width: 100%;
+    height: 3%;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -3vh;
+}
+
+.like i {
+    position: absolute;
+    right: 6vw;
+    font-size: 1.5em;
+}
+
+.liked {
+    color: var(--bb-color);
+}
+
+.not-liked {
+    align-self: flex-end;
+}
+
+.big-post button {
+    display: block;
+    background-color: var(--btn-color);
+    border: none;
+    border-radius: 3%;
+    height: 5vh;
+    width: 30vw;
+    font-size: 5vw;
+    color: var(--btn-text);
+}
+
+.post-buttons {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+
+.small-post .edit-form {
+    display: none;
+}
+
+.big-post .edit-form-visible {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    transition: opacity 0.4s ease;
+    width: 100vw;
+    height: 30vh;
+}
+
+.edit-inputs {
+    display: flex;
+    flex-direction: column;
+    /* font-size: 1vh; */
+    /* align-items: center; */
+    width: 80%;
+    /* height: 100%; */
+}
+
+.update-description-field {
+    width: 100%;
+    height: 15vh;
+}
+
+.edit-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    /* flex-direction: row; */
+}
+
+.visible {
+    display: flex;
+}
+
+.hidden {
+    display: none;
+}
+
+.hidden::before {
+    display: none;
+}
+
+.posts-header {
+    opacity: 0;
+    width: 100vw;
+    height: 20%;
+}
+
+.posts-header a {
+    width: 30%;
 }
