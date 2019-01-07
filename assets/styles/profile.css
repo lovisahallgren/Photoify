@@ -68,7 +68,7 @@
 
 .posts {
     width: 100%;
-    /* height: auto; */
+    height: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
@@ -76,7 +76,7 @@
 
 .small-post {
     width: 100%;
-    height: 50%;
+    height: 70%;
 }
 
 .small-post img {
