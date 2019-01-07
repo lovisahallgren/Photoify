@@ -58,7 +58,7 @@ require __DIR__.'/views/header.php';
     <article class="posts">
         <?php $posts = getPostsByUser($_SESSION['user']['id'], $pdo);?>
         <?php foreach ($posts as $post) : ?>
-        <i class="fas fa-times exit hidden"></i>
+            <i class="fas fa-times exit hidden"></i>
         <div class="small-post">
             <img src="<?= 'app/posts/uploads/'.$_SESSION['user']['id'].'/'.$post['image']?>" alt="">
             <div class="like">
@@ -67,37 +67,31 @@ require __DIR__.'/views/header.php';
                 } else {
                     echo $post['created_at'];
                 }?></p>
-                <i class="far fa-heart not-liked visible"></i>
-                <!-- <div class="liked-div"> -->
-                    <i class="fas fa-heart liked hidden"></i>
-                <!-- </div> -->
+                <i class="far fa-heart not-liked"></i>
+                <i class="fas fa-heart liked hidden"></i>
             </div>
             <div class="description">
                 <p class="username-post"><?= $_SESSION['user']['user_name']; ?></p>
                 <p><?= $post['description']?></p>
             </div>
 
-            <form class="edit-form" action="app/posts/update.php" method="post">
+            <form data-id="<?= $post['id']?>" class="edit-form hidden" action="app/posts/update.php" method="post">
                 <div class="edit-inputs">
                     <label for="update-description">Edit your description</label>
                     <textarea class="update-description-field" name="update-description"
                     placeholder="<?= $post['description'] ?>" required></textarea>
                 </div>
-                <div class="edit-buttons">
+                <div data-id="<?= $post['id']?>" class="edit-buttons">
                     <button class="btn-primary" type="submit" name="post-id" value="<?= $post['id']; ?>">Update text</button>
-                    <button class="cancel-btn" type="button" name="cancel-btn">Cancel</button>
+                    <button data-id="<?= $post['id']?>" class="cancel-btn" type="button" name="button">Cancel</button>
                 </div>
             </form>
 
-            <div class="post-buttons">
-                <!-- <a href="/app/posts/update.php"> -->
-                    <button class="edit-btn" type="button" name="button">Edit post</button>
-                <!-- </a> -->
-                <!-- <a href="/app/posts/delete.php"> -->
-                    <button class="delete-btn"  type="button" name="button">Delete post</button>
-                <!-- </a> -->
+            <div data-id="<?= $post['id']?>" class="post-buttons">
+                <button data-id="<?= $post['id']?>" class="edit-btn" type="button" name="button">Edit post</button>
+                <button class="delete-btn"  type="button" name="button">Delete post</button>
             </div>
-        </div>
+        </div> <!-- small post -->
     <?php endforeach; ?>
     </article>
 
