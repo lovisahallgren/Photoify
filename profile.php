@@ -81,7 +81,7 @@ require __DIR__.'/views/header.php';
                     <textarea class="update-description-field" name="update-description"
                     placeholder="<?= $post['description'] ?>" required></textarea>
                 </div>
-                <div data-id="<?= $post['id']?>" class="edit-buttons">
+                <div class="edit-buttons">
                     <button class="btn-primary" type="submit" name="post-id" value="<?= $post['id']; ?>">Update text</button>
                     <button data-id="<?= $post['id']?>" class="cancel-btn" type="button" name="button">Cancel</button>
                 </div>
