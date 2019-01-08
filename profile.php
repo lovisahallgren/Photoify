@@ -81,15 +81,22 @@ require __DIR__.'/views/header.php';
                     <textarea class="update-description-field" name="update-description"
                     placeholder="<?= $post['description'] ?>" required></textarea>
                 </div>
-                <div class="edit-buttons">
-                    <button class="btn-primary" type="submit" name="post-id" value="<?= $post['id']; ?>">Update text</button>
-                    <button data-id="<?= $post['id']?>" class="cancel-btn" type="button" name="button">Cancel</button>
+                <div class="confirm-edit">
+                    <button class="btn-primary" type="submit" name="post-id" value="<?= $post['id']; ?>">Save</button>
+                    <button data-id="<?= $post['id']?>" class="cancel-edit-btn" type="button" name="button">Cancel</button>
+                </div>
+            </form>
+
+            <form data-id="<?= $post['id']?>" class="delete-form hidden" action="app/posts/delete.php" method="post">
+                <div class="confirm-delete">
+                        <button class="btn-primary delete" type="submit" name="post-id" value="<?= $post['id']; ?>">Confirm</button>
+                        <button data-id="<?= $post['id']?>" class="cancel-delete-btn" type="button" name="button">Cancel</button>
                 </div>
             </form>
 
             <div data-id="<?= $post['id']?>" class="post-buttons">
-                <button data-id="<?= $post['id']?>" class="edit-btn" type="button" name="button">Edit post</button>
-                <button class="delete-btn"  type="button" name="button">Delete post</button>
+                <button data-id="<?= $post['id']?>" class="edit-post-btn" type="button" name="button">Edit post</button>
+                <button data-id="<?= $post['id']?>" class="delete-post-btn"  type="button" name="button">Delete post</button>
             </div>
         </div> <!-- small post -->
     <?php endforeach; ?>

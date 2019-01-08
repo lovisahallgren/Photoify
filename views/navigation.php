@@ -1,13 +1,12 @@
-<div class="hamburger-nav">
-    <i class="fas fa-bars"></i>
-</div>
-<div>
+<div class="header">
     <a class="logo" href="./index.php">
         <img src="/../logo.png" alt="Logo">
     </a>
+    <i class="fas fa-bars menu-icon"></i>
+    <i class="fas fa-times close-menu hidden"></i>
 </div>
 <nav class="navbar">
-    <ul class="navbar-nav burger-nav-hidden">
+    <ul class="navbar-nav hidden">
 
         <li class="nav-item">
             <a class="nav-link" href="./index.php">Home</a>

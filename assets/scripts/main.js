@@ -1,19 +1,11 @@
 'use strict';
 
-//Hamburger menu
-const hamburgerIcon = document.querySelector('.hamburger-nav');
-const hamburgerMenu = document.querySelector('.navbar-nav');
-
-// toggling hamburger menu
-hamburgerIcon.addEventListener('click', () => {
-    hamburgerMenu.classList.toggle('burger-nav-visible');
-    // hamburgerMenu.classList.toggle('change-to-cross');
-});
-
 const smallPosts = [...document.querySelectorAll('.small-post')];
 const editForms = [...document.querySelectorAll('.edit-form')];
+const deleteForms = [...document.querySelectorAll('.delete-form')];
 const postButtons = [...document.querySelectorAll('.post-buttons')];
-const editButtons = [...document.querySelectorAll('.edit-btn')];
+const editButtons = [...document.querySelectorAll('.edit-post-btn')];
+const deleteButtons = [...document.querySelectorAll('.delete-post-btn')];
 // const hearts = document.querySelectorAll('.not-liked');
 // const description = document.querySelectorAll('.description');
 
@@ -31,6 +23,10 @@ function exit() {
 
         editForms.forEach(editForm => {
             editForm.classList.add('hidden');
+        });
+
+        deleteForms.forEach(deleteForm => {
+            deleteForm.classList.add('hidden');
         });
 
         postButtons.forEach(postButton => {
@@ -58,9 +54,35 @@ editButtons.forEach(editButton => {
         editForm.classList.remove('hidden');
         postButtons.classList.add('hidden');
 
-        const cancel = document.querySelector(`.cancel-btn[data-id="${id}"]`);
+        const cancel = document.querySelector(
+            `.cancel-edit-btn[data-id="${id}"]`
+        );
         cancel.addEventListener('click', () => {
             editForm.classList.add('hidden');
+            postButtons.classList.remove('hidden');
+        });
+        exit();
+    });
+});
+
+//if user wants to delete post and clicks button popup appears to confirm action
+deleteButtons.forEach(deleteButton => {
+    deleteButton.addEventListener('click', event => {
+        const id = event.target.dataset.id;
+        const deleteForm = document.querySelector(
+            `.delete-form[data-id="${id}"]`
+        );
+        const postButtons = document.querySelector(
+            `.post-buttons[data-id="${id}"]`
+        );
+        deleteForm.classList.remove('hidden');
+        postButtons.classList.add('hidden');
+
+        const cancel = document.querySelector(
+            `.cancel-delete-btn[data-id="${id}"]`
+        );
+        cancel.addEventListener('click', () => {
+            deleteForm.classList.add('hidden');
             postButtons.classList.remove('hidden');
         });
         exit();

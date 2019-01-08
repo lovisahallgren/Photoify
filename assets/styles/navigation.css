@@ -5,18 +5,15 @@
     width: 30%;
 }
 
-.hamburger-nav {
+.menu-icon,
+.close-menu {
     position: fixed;
     top: 2vh;
     right: 5vw;
     z-index: 2;
-}
-
-.hamburger-nav i {
     color: var(--txt-color);
     font-size: 5vh;
     display: flex;
-    top: 0;
 }
 
 .nav-link {
@@ -30,14 +27,10 @@
 }
 
 .navbar-nav {
-    display: none;
-}
-
-.burger-nav-visible {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: var(--bb-color);
     list-style: none;
     justify-content: center;
@@ -45,16 +38,10 @@
     left: 0;
     top: 0;
     position: fixed;
-    z-index: 1;
-}
-
-.change-to-cross {
-    /* top: 0vh;
-      right: 5vw; */
 }
 
 @media screen and (min-width: 768px) {
-    .hamburger-nav i {
+    .menu-icon {
         display: none;
     }
 
