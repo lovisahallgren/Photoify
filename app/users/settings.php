@@ -4,100 +4,92 @@ declare(strict_types=1);
 
 require __DIR__.'/../autoload.php';
 
-if (isset($_POST['biography'])) {
-    $biography = trim(filter_var($_POST['biography'], FILTER_SANITIZE_STRING));
+if (isset($_POST['confirm-password'])) {
+
+    $password = trim($_POST['confirm-password']);
+
     $id = (int) $_SESSION['user']['id'];
 
-// Updates the database column biography with set text
-    $statement = $pdo->prepare('UPDATE users SET biography = :biography WHERE id = :id');
+    $statement = $pdo->prepare('SELECT * FROM users WHERE id = :id');
 
-    $statement->bindParam(':biography', $biography, PDO::PARAM_STR);
-    $statement->bindParam(':id', $id, PDO::PARAM_INT);
+    $statement->bindParam(':id', $id, PDO::PARAM_STR);
 
     $statement->execute();
 
-    $_SESSION['user']['biography'] = $biography;
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
+    // die(var_dump($user));
 
-    //Checks if email is set
-}
-if (isset($_POST['current-email'], $_POST['new-email'], $_POST['repeat-new-email'])) {
-    $currentEmail = trim(filter_var($_POST['current-email'], FILTER_SANITIZE_EMAIL));
-    $newEmail = trim(filter_var($_POST['new-email'], FILTER_SANITIZE_EMAIL));
-    $repeatNewEmail = trim(filter_var($_POST['repeat-new-email'], FILTER_SANITIZE_EMAIL));
-    $id = (int) $_SESSION['user']['id'];
+    if (password_verify($password, $user['password'])) {
 
-    $statement = $pdo->query('SELECT email FROM users WHERE id = :id');
+        if ($_POST['biography'] == "" ) {
+            $biography = $_SESSION['user']['biography'];
+        } else {
+            $biography = trim(filter_var($_POST['biography'], FILTER_SANITIZE_STRING));
 
-    $statement->bindParam(':id', $id, PDO::PARAM_INT);
+            $statement = $pdo->prepare('UPDATE users SET biography = :biography WHERE id = :id');
 
-    $statement->execute();
-
-    $currentEmailDb = $statement->fetch(PDO::FETCH_ASSOC);
-
-// Checks if typed in current email matches email in database
-    if ($currentEmail == $currentEmailDb['email']) {
-
-// Checks if twice typed in new email matches
-        if ($newEmail == $repeatNewEmail) {
-
-// If yes update email in database
-            $statement = $pdo->prepare('UPDATE users SET email = :email WHERE id = :id');
-
-            $statement->bindParam(':email', $newEmail, PDO::PARAM_STR);
-            $statement->bindParam(':id', $id, PDO::PARAM_INT);
+            $statement->bindParam(':biography', $biography, PDO::PARAM_STR);
+            $statement->bindParam(':id', $id, PDO::PARAM_STR);
 
             $statement->execute();
 
-        // If new emails don't match, die page and echo something
-        } else {
-            $message = "New emails don't match!";
+            $_SESSION['user']['biography'] = $biography;
+
         }
 
-        // If old email don't match database email, die page and echo something
-    } else {
-         $message = "Old email doesn't match!";
-    }
+        if ($_POST['name'] == "" ) {
+            $name = $_SESSION['user']['name'];
+        } else {
+            $name = trim(filter_var($_POST['name'], FILTER_SANITIZE_STRING));
 
-    //Checks if password is set
-}
- if (isset($_POST['current-password'], $_POST['new-password'], $_POST['repeat-new-password'])) {
-    $currentPassword = $_POST['current-password'];
-    $newPassword = $_POST['new-password'];
-    $repeatNewPassword = $_POST['repeat-new-password'];
-    $id = (int) $_SESSION['user']['id'];
+            $statement = $pdo->prepare('UPDATE users SET name = :name WHERE id = :id');
 
-// Get old password from database
-    $statement = $pdo->query('SELECT password FROM users WHERE id = :id');
-
-    $statement->bindParam(':id', $id, PDO::PARAM_INT);
-
-    $statement->execute();
-
-    $currentPasswordDb = $statement->fetch(PDO::FETCH_ASSOC);
-
-// Checks if typed in current password matches password in database
-    if (password_verify($currentPassword, $currentPasswordDb['password'])) {
-
-// Checks if twice typed in new password matches
-        if ($newPassword == $repeatNewPassword) {
-
-// If yes update password in database
-            $statement = $pdo->prepare('UPDATE users SET password = :password WHERE id = :id');
-// hash password to database
-            $statement->bindParam(':password', password_hash($newPassword, PASSWORD_DEFAULT), PDO::PARAM_STR);
-            $statement->bindParam(':id', $id, PDO::PARAM_INT);
+            $statement->bindParam(':name', $name, PDO::PARAM_STR);
+            $statement->bindParam(':id', $id, PDO::PARAM_STR);
 
             $statement->execute();
 
-        // If new passwords don't match, die page and echo something
-        } else {
-            $message = "New passwords don't match!";
+            $_SESSION['user']['name'] = $name;
         }
 
-        // If old password don't match database password, die page and echo something
+        if ($_POST['username'] == "") {
+            $username = $_SESSION['user']['username'];
+        } elseif (isset($_POST['username'])) {
+            $username = $_POST['username'];
+
+            $statement = $pdo->prepare('SELECT username FROM users WHERE username = :username');
+
+            $statement->bindParam(':username', $username, PDO::PARAM_STR);
+
+            $statement->execute();
+
+            $usernamesDB = $statement->fetch(PDO::FETCH_ASSOC);
+
+            if ($username == $usernamesDB['username']) {
+                $_SESSION['message'] = 'Sorry, this user already exists';
+            } else {
+                $changedUsername = trim(filter_var($username, FILTER_SANITIZE_STRING));
+
+                $statement = $pdo->prepare('UPDATE users SET username = :username WHERE id = :id');
+
+                $statement->bindParam(':username', $changedUsername, PDO::PARAM_STR);
+                $statement->bindParam(':id', $id, PDO::PARAM_STR);
+
+                $statement->execute();
+
+                $_SESSION['user']['username'] = $username;
+
+            }
+
+        }
+
     } else {
-         $message = "Old password doesn't match!";
+
+        $_SESSION['message'] = 'Incorrect password';
     }
+
+} else {
+    $_SESSION['message'] = 'You need to confirm your changes with your password!';
 }
 
 redirect('/../settings.php');
