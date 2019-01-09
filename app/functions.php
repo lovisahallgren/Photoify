@@ -27,18 +27,19 @@ function getPostsByUser(int $id, $pdo) {
 
         $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+
         return $posts;
 }
 
-function getAllPosts($image, $pdo) {
+function getAllPosts($pdo) {
 
-        $statement = $pdo->prepare('SELECT * FROM posts ORDER BY created_at DESC');
+        $statement = $pdo->prepare('SELECT posts.id, posts.image, users.id as user_id, users.username, posts.description, posts.created_at, posts.updated_at FROM posts JOIN users ON posts.user_id = users.id ORDER BY created_at DESC');
 
         // $statement->bindParam(':user_id', $id, PDO::PARAM_INT);
 
         $statement->execute();
 
-        $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+        $allPosts = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        return $posts;
+        return $allPosts;
 }
