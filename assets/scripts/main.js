@@ -88,18 +88,3 @@ deleteButtons.forEach(deleteButton => {
         exit();
     });
 });
-
-// hearts.forEach(heart => {
-//     heart.addEventListener('click', () => {
-//         heart.classList.add('hidden');
-//         const liked = document.querySelectorAll('.liked');
-//         liked.classList.remove('hidden');
-//         liked.forEach(like => {
-//             like.classList.remove('hidden');
-//             like.addEventListener('click', () => {
-//                 like.classList.add('hidden');
-//                 heart.classList.remove('hidden');
-//             });
-//         });
-//     });
-// });

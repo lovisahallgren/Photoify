@@ -10,7 +10,7 @@
     position: fixed;
     top: 2vh;
     right: 5vw;
-    z-index: 2;
+    z-index: 3;
     color: var(--txt-color);
     font-size: 5vh;
     display: flex;
@@ -38,6 +38,7 @@
     left: 0;
     top: 0;
     position: fixed;
+    z-index: 2;
 }
 
 @media screen and (min-width: 768px) {

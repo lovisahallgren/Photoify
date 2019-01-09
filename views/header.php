@@ -22,6 +22,7 @@ if (isset($_SESSION['message'])) {
     <link rel="stylesheet" href="/assets/styles/settings.css">
     <link rel="stylesheet" href="/assets/styles/navigation.css">
     <link rel="stylesheet" href="/assets/styles/profile.css">
+    <link rel="stylesheet" href="/assets/styles/home.css">
 </head>
 <body>
     <?php require __DIR__.'/navigation.php'; ?>

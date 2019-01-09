@@ -75,3 +75,11 @@ a {
     font-size: 4.5vw;
     margin-top: 4vh;
 }
+
+.title {
+    position: absolute;
+    top: 1.5%;
+    width: 100%;
+    text-align: center;
+    z-index: -1;
+}
