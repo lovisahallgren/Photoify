@@ -5,16 +5,16 @@ declare(strict_types=1);
 require __DIR__.'/../autoload.php';
 
 // Checks if both email and password is set
-if (isset($_POST['email'], $_POST['password'])) {
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+if (isset($_POST['username'], $_POST['password'])) {
+    $username = trim(filter_var($_POST['username'], FILTER_SANITIZE_STRING));
 
-    $statement = $pdo->query('SELECT * FROM users WHERE email = :email');
+    $statement = $pdo->query('SELECT * FROM users WHERE username = :username');
 
     if (!$statement) {
         die(var_dump($pdo->errorinfo()));
     }
 
-    $statement->bindParam(':email', $email, PDO::PARAM_STR);
+    $statement->bindParam(':username', $username, PDO::PARAM_STR);
 
     $statement->execute();
 
@@ -33,4 +33,4 @@ if (isset($_POST['email'], $_POST['password'])) {
     }
 }
 
-redirect('/');
+redirect('/index.php');
