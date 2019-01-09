@@ -9,17 +9,12 @@ if (isset($_POST['post-id'])) {
     $userId = (int) $_SESSION['user']['id'];
     $userFolder = $userId;
 
-    // die(var_dump('hej'));
-
     $userPosts = getPostsByUser($userId, $pdo);
 
     foreach ($userPosts as $userPost) {
         if ($postId == $userPost['id']) {
-            // die(var_dump($userPost['id']));
 
             $imageName = $userPost['image'];
-
-            // die(var_dump($imageName));
 
             $statement = $pdo->prepare('DELETE FROM posts WHERE id = :id AND image = :image');
 
@@ -31,8 +26,6 @@ if (isset($_POST['post-id'])) {
             $statement->bindParam(':image', $imageName, PDO::PARAM_STR);
 
             $statement->execute();
-
-            // $image = $statement->fetch(PDO::FETCH_ASSOC);
 
             unlink(__DIR__.'/uploads/'.$userFolder.'/'.$imageName.'');
 
