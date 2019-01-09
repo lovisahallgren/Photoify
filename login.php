@@ -1,12 +1,19 @@
-<?php require __DIR__.'/views/header.php'; ?>
+<?php
+require __DIR__.'/views/header.php';
+
+if(isset($message)) {
+    echo $message;
+}
+
+?>
 
 <section class="login-page">
 
 <form class="login-form" action="app/users/login.php" method="post">
     <div class="form-group">
-        <label for="email">Email</label>
-        <input class="form-control" type="email" name="email" placeholder="e-mail@email.com" required>
-        <small class="form-text text-muted">Please provide your email address.</small>
+        <label for="username">Username</label>
+        <input class="form-control" type="username" name="username" required>
+        <small class="form-text text-muted">Please provide your username.</small>
 
         <label for="password">Password</label>
         <input class="form-control" type="password" name="password" required>

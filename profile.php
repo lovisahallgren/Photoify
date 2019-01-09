@@ -13,7 +13,7 @@ require __DIR__.'/views/header.php';
 
     <div class="username">
         <?php if (isset($_SESSION['user'])) {
-            echo $_SESSION['user']['user_name'];
+            echo $_SESSION['user']['username'];
         } ?>
     </div>
 
@@ -50,7 +50,7 @@ require __DIR__.'/views/header.php';
         </div>
         <div class="username">
             <?php if (isset($_SESSION['user'])) {
-                echo $_SESSION['user']['user_name'];
+                echo $_SESSION['user']['username'];
             } ?>
         </div>
     </div>
@@ -61,17 +61,24 @@ require __DIR__.'/views/header.php';
             <i class="fas fa-times exit hidden"></i>
         <div class="small-post">
             <img src="<?= 'app/posts/uploads/'.$_SESSION['user']['id'].'/'.$post['image']?>" alt="">
-            <div class="like">
+            <div data-id="<?= $post['id']?>" class="like">
                 <p class="post-date"><?php if ($post['updated_at']) {
-                    echo $post['updated_at'];
+                    $date = explode(" ", $post['updated_at']);
+                    echo $date[0];
                 } else {
-                    echo $post['created_at'];
+                    $date = explode(" ", $post['created_at']);
+                    echo $date[0];
                 }?></p>
-                <i class="far fa-heart not-liked"></i>
-                <i class="fas fa-heart liked hidden"></i>
+                <!-- <form class="like-form" action="app/posts/likes.php" method="post" enctype="multipart/form-data">
+                    <input type="text" name="post-id" value="<?= $post['id']; ?>">
+                    <button class="like-button" type="submit" name="like"> -->
+                        <i data-id="<?= $post['id']?>"class="far fa-heart unliked"></i>
+                        <i data-id="<?= $post['id']?>" class="fas fa-heart liked hidden"></i>
+                    <!-- </button> -->
+                <!-- </form> -->
             </div>
             <div class="description">
-                <p class="username-post"><?= $_SESSION['user']['user_name']; ?></p>
+                <p class="username-post"><?= $_SESSION['user']['username']; ?></p>
                 <p><?= $post['description']?></p>
             </div>
 
@@ -83,20 +90,20 @@ require __DIR__.'/views/header.php';
                 </div>
                 <div class="confirm-edit">
                     <button class="btn-primary" type="submit" name="post-id" value="<?= $post['id']; ?>">Save</button>
-                    <button data-id="<?= $post['id']?>" class="cancel-edit-btn" type="button" name="button">Cancel</button>
+                    <button data-id="<?= $post['id']?>" class="btn-primary cancel-edit-btn" type="button" name="button">Cancel</button>
                 </div>
             </form>
 
             <form data-id="<?= $post['id']?>" class="delete-form hidden" action="app/posts/delete.php" method="post">
                 <div class="confirm-delete">
                         <button class="btn-primary delete" type="submit" name="post-id" value="<?= $post['id']; ?>">Confirm</button>
-                        <button data-id="<?= $post['id']?>" class="cancel-delete-btn" type="button" name="button">Cancel</button>
+                        <button data-id="<?= $post['id']?>" class="btn-primary cancel-delete-btn" type="button" name="button">Cancel</button>
                 </div>
             </form>
 
             <div data-id="<?= $post['id']?>" class="post-buttons">
-                <button data-id="<?= $post['id']?>" class="edit-post-btn" type="button" name="button">Edit post</button>
-                <button data-id="<?= $post['id']?>" class="delete-post-btn"  type="button" name="button">Delete post</button>
+                <button data-id="<?= $post['id']?>" class="btn-primary edit-post-btn" type="button" name="button">Edit post</button>
+                <button data-id="<?= $post['id']?>" class="btn-primary delete-post-btn"  type="button" name="button">Delete post</button>
             </div>
         </div> <!-- small post -->
     <?php endforeach; ?>

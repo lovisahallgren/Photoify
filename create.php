@@ -1,4 +1,12 @@
-<?php require __DIR__.'/views/header.php'; ?>
+<?php
+
+require __DIR__.'/views/header.php';
+
+if(isset($message)) {
+    echo $message;
+}
+ ?>
+
 
 <article>
     <h2>Create account</h2>
@@ -14,7 +22,7 @@
             <small class="form-text text-muted">Please provide your email address.</small>
 
             <label for="user_name">Username</label>
-            <input class="form-control" type="user_name" name="user_name" required>
+            <input class="form-control" type="username" name="username" required>
             <small class="form-text text-muted">Please provide a username.</small>
 
             <label for="password">Password</label>
