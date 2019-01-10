@@ -1,8 +1,13 @@
-.logo {
-    position: absolute;
+.header {
+    width: 100%;
+    height: 10vh;
+}
+
+.header img {
+    /* position: absolute;
     top: -4vh;
-    left: 2vw;
-    width: 30%;
+    left: 2vw; */
+    width: 15%;
 }
 
 .menu-icon,
@@ -20,10 +25,6 @@
     text-decoration: none;
     color: var(--txt-color);
     font-size: 7vh;
-}
-
-.navbar {
-    height: 10vh;
 }
 
 .navbar-nav {

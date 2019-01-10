@@ -48,3 +48,9 @@
     right: 0;
     margin-right: 6vw;
 }
+
+.feed-post .post-likes {
+    position: absolute;
+    right: 15vw;
+    margin-top: 3.5vh;
+}
