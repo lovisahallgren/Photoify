@@ -14,50 +14,62 @@ require __DIR__.'/views/header.php';
     <div class="username">
         <?php if (isset($_SESSION['user'])) {
             echo $_SESSION['user']['username'];
-        } ?>
+        }?>
     </div>
 
-<div class="edit-div">
+    <div class="edit-div">
 
-    <div class="avatar">
-        <?php if (isset($_SESSION['user'])): ?>
-            <img src="<?= '/app/users/avatar/'.$_SESSION['user']['avatar']?>" alt="">
-        <?php endif; ?>
-    </div>
-
-    <div class="edit-profile">
-        <a href="app/users/settings.php">Edit my profile</a>
-    </div>
-</div>
-
-    <div class="name">
-        <?php if (isset($_SESSION['user'])) {
-            echo $_SESSION['user']['name'];
-        } ?>
-    </div>
-
-    <div class="biography">
-        <?php if (isset($_SESSION['user'])) {
-            echo $_SESSION['user']['biography'];
-        } ?>
-    </div>
-
-    <div class="posts-header">
-        <div class="">
-            <a class="logo" href="./index.php">
-                <img src="logo.png" alt="Logo">
-            </a>
+        <div class="avatar">
+            <?php if (isset($_SESSION['user'])): ?>
+                <img src="<?= '/app/users/avatar/'.$_SESSION['user']['avatar']?>" alt="">
+            <?php endif; ?>
         </div>
-        <div class="username">
+
+        <div class="edit-profile">
+            <a href="app/users/settings.php">Edit my profile</a>
+        </div>
+    </div>
+
+<!-- <section class="info-box"> -->
+
+    <div class="info">
+        <div class="name">
             <?php if (isset($_SESSION['user'])) {
-                echo $_SESSION['user']['username'];
+                echo $_SESSION['user']['name'];
+            } ?>
+        </div>
+
+        <div class="biography">
+            <?php if (isset($_SESSION['user'])) {
+                echo $_SESSION['user']['biography'];
             } ?>
         </div>
     </div>
 
+<!-- </section> -->
+
+<a class="upload-post">Upload post</a>
+<div class="upload">
+    <form class="upload-post-group hidden" action="/app/posts/store.php" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="image">Choose an image to upload</label>
+            <input class="image-input" type="file" accept=".jpeg" name="image">
+            <label for="description">Description</label>
+            <textarea class="description-field" name="description"
+            placeholder="Write something here"></textarea>
+            <div class="update-post-buttons">
+                <button class="btn-primary" type="submit" name="button">Upload</button>
+                <button class="btn-primary cancel hidden" type="submit" name="button">Cancel</button>
+            </div><!-- /update-post-buttons -->
+        </div>
+    </form><!-- /form-group -->
+</div>
+
     <article class="posts">
         <?php $posts = getPostsByUser($_SESSION['user']['id'], $pdo);?>
         <?php foreach ($posts as $post) : ?>
+            <?php $isLikedByUser = isLikedByUser($post['id'], $_SESSION['user']['id'], $pdo);?>
+            <?php $likes = countLikes($post['id'], $pdo);?>
             <i class="fas fa-times exit hidden"></i>
         <div class="small-post">
             <img src="<?= 'app/posts/uploads/'.$_SESSION['user']['id'].'/'.$post['image']?>" alt="">
@@ -69,13 +81,15 @@ require __DIR__.'/views/header.php';
                     $date = explode(" ", $post['created_at']);
                     echo $date[0];
                 }?></p>
-                <!-- <form class="like-form" action="app/posts/likes.php" method="post" enctype="multipart/form-data">
-                    <input type="text" name="post-id" value="<?= $post['id']; ?>">
-                    <button class="like-button" type="submit" name="like"> -->
-                        <i data-id="<?= $post['id']?>"class="far fa-heart unliked"></i>
-                        <i data-id="<?= $post['id']?>" class="fas fa-heart liked hidden"></i>
-                    <!-- </button> -->
-                <!-- </form> -->
+                <p class="post-likes likes-post<?= $post['id']; ?>"><?= $likes ?></p>
+                <form class="like-form" method="post">
+                    <input type="hidden" name="post_id" value="<?= $post['id']; ?>">
+                    <input type="hidden" name="action" value="<?= $isLikedByUser ? 'unlike' : 'like'; ?>">
+                    <button data-id="<?= $post['id']?>"class="like-button" type="submit" name="like">
+                        <i class="far fa-heart like-button-<?= $post['id']?> like-button-heart <?= $isLikedByUser ? 'hidden' : '' ?>" ></i>
+                        <i class="fas fa-heart like-button-<?= $post['id']?> like-button-heart liked <?= $isLikedByUser ? '' : 'hidden' ?>"></i>
+                    </button>
+                </form>
             </div>
             <div class="description">
                 <p class="username-post"><?= $_SESSION['user']['username']; ?></p>
@@ -89,15 +103,18 @@ require __DIR__.'/views/header.php';
                     placeholder="<?= $post['description'] ?>" required></textarea>
                 </div>
                 <div class="confirm-edit">
-                    <button class="btn-primary" type="submit" name="post-id" value="<?= $post['id']; ?>">Save</button>
+                    <button class="btn-primary" type="submit" name="post_id" value="<?= $post['id']; ?>">Save</button>
                     <button data-id="<?= $post['id']?>" class="btn-primary cancel-edit-btn" type="button" name="button">Cancel</button>
                 </div>
             </form>
 
             <form data-id="<?= $post['id']?>" class="delete-form hidden" action="app/posts/delete.php" method="post">
                 <div class="confirm-delete">
-                        <button class="btn-primary delete" type="submit" name="post-id" value="<?= $post['id']; ?>">Confirm</button>
+                    <p>Are you sure you want to delete this post?</p>
+                    <div class="confirm-delete-buttons">
+                        <button class="btn-primary delete" type="submit" name="post_id" value="<?= $post['id']; ?>">Confirm</button>
                         <button data-id="<?= $post['id']?>" class="btn-primary cancel-delete-btn" type="button" name="button">Cancel</button>
+                    </div>
                 </div>
             </form>
 

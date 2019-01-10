@@ -24,13 +24,13 @@
             <a class="nav-link" href="./profile.php">Profile</a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="./app/posts/store.php">Posts</a>
-        </li>
-
         <!-- <li class="nav-item">
-            <a class="nav-link" href="./app/users/settings.php">Settings</a>
+            <a class="nav-link" href="./app/posts/store.php">Posts</a>
         </li> -->
+
+        <li class="nav-item">
+            <a class="nav-link" href="./app/users/settings.php">Settings</a>
+        </li>
 
         <li class="nav-item">
             <a class="nav-link" href="/app/users/logout.php">Logout</a>
