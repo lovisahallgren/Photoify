@@ -10,7 +10,8 @@
 .username {
     font-weight: bold;
     font-size: 1.2em;
-    margin: -7vh 0vh 8vh 0vh;
+    position: absolute;
+    top: 2.5vh;
 }
 
 .edit-div {
@@ -37,10 +38,7 @@
 
 .name,
 .biography {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 80%;
+    width: 50%;
     height: 4vh;
 }
 
@@ -71,19 +69,19 @@
     height: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-auto-rows: 40%;
+    padding: 1%;
 }
 
 .small-post {
     width: 100%;
-    height: 70%;
+    height: 100%;
 }
 
 .small-post img {
     width: 100%;
     height: 100%;
-    margin: 5%;
-    padding: 5%;
+    padding: 2%;
 }
 
 .big-post {
@@ -174,10 +172,6 @@
     color: var(--bb-color);
 }
 
-.not-liked {
-    align-self: flex-end;
-}
-
 .big-post .btn-primary {
     display: block;
     background-color: var(--btn-color);
@@ -215,11 +209,37 @@
     height: 50%;
 }
 
-.edit-buttons {
+.confirm-edit {
     display: flex;
     width: 90%;
     align-items: center;
     justify-content: space-around;
+}
+
+.delete-form {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: opacity 0.4s ease;
+    width: 90%;
+    height: 30%;
+}
+
+.confirm-delete-buttons {
+    display: flex;
+    width: 90%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.confirm-delete {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.confirm-delete p {
+    margin-bottom: 5%;
 }
 
 .update-description-field {
@@ -247,4 +267,38 @@
 
 .posts-header a {
     width: 30%;
+}
+
+.info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 3% 0 3% 10%;
+}
+
+.upload {
+    padding-bottom: 10%;
+}
+
+.upload-post {
+    font-size: 1.1em;
+    font-weight: bold;
+    background-color: var(--input-color);
+    color: var(--btn-text);
+    margin: 0;
+    height: 6vh;
+    width: 45%;
+    text-align: center;
+    padding-top: 2%;
+}
+
+.upload-post-group {
+    background-color: var(--bg-color);
+}
+
+.post-likes {
+    position: absolute;
+    right: 15vw;
+    margin-top: 2vh;
 }
