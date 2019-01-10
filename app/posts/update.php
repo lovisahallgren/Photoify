@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 require __DIR__.'/../autoload.php';
 
-if (isset($_POST['update-description'], $_POST['post-id'])) {
-    $postId = $_POST['post-id'];
+if (isset($_POST['update-description'], $_POST['post_id'])) {
+    $postId = $_POST['post_id'];
     $updateDescription = trim(filter_var($_POST['update-description'], FILTER_SANITIZE_STRING));
     $userId = (int) $_SESSION['user']['id'];
 
@@ -23,9 +23,9 @@ if (isset($_POST['update-description'], $_POST['post-id'])) {
 
     $statement->execute();
 
-    $_SESSION['message'] = 'Your changes has been updated';
-    redirect('/profile.php');
 }
+$_SESSION['message'] = 'Your changes has been updated';
+redirect('/profile.php');
         // else {
         //     $_SESSION['message'] = 'Your changes didn\'t update. Please try again.';
         //

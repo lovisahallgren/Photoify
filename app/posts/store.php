@@ -49,11 +49,11 @@ if (isset($_POST['description'], $_FILES['image'])) {
 
     }
     elseif (!isset($_POST['description'], $_FILES['image'])) {
+
+        $_SESSION['message'] = 'You need to choose an image to upload.';
         redirect('/profile.php');
     }
 
 }
 
-$_SESSION['message'] = 'You need to choose an image to upload.';
-
-redirect('/../posts.php');
+redirect('/profile.php');
