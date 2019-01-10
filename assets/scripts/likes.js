@@ -1,24 +1,41 @@
 'use strict';
 
-const unliked = [...document.querySelectorAll('.unliked')];
-const liked = [...document.querySelectorAll('.liked')];
+const [...likeForms] = document.querySelectorAll('.like-form');
+const [...likeButtons] = document.querySelectorAll('.like-button');
 
-unliked.forEach(unlike => {
-    unlike.addEventListener('click', event => {
-        const id = event.target.dataset.id;
-        const liked = document.querySelector(`.liked[data-id="${id}"]`);
-        console.log(liked);
-        liked.classList.remove('hidden');
-        unlike.classList.add('hidden');
+likeForms.forEach(likeForm => {
+    likeForm.addEventListener('submit', event => {
+        event.preventDefault();
+
+        const formData = new FormData(likeForm);
+
+        fetch('app/posts/likes.php', {
+            method: 'POST',
+            body: formData,
+        })
+            .then(response => response.json())
+            .then(json => {
+                let like = document.querySelector(
+                    `.likes-post${likeForm[0].value}`
+                );
+                like.innerText = json;
+                if (likeForm[1].value === 'like') {
+                    likeForm[1].value = 'unlike';
+                } else {
+                    likeForm[1].value = 'like';
+                }
+            });
     });
 });
 
-liked.forEach(like => {
-    like.addEventListener('click', event => {
-        const id = event.target.dataset.id;
-        const unliked = document.querySelector(`.unliked[data-id="${id}"]`);
-        console.log(liked);
-        unliked.classList.remove('hidden');
-        like.classList.add('hidden');
+likeButtons.forEach(likeButton => {
+    likeButton.addEventListener('click', () => {
+        let btnId = likeButton.dataset.id;
+        let [...likeButtonHearts] = document.querySelectorAll(
+            `.like-button-${btnId}`
+        );
+        likeButtonHearts.forEach(likeButtonHeart => {
+            likeButtonHeart.classList.toggle('hidden');
+        });
     });
 });

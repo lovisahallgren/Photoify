@@ -6,8 +6,7 @@ const deleteForms = [...document.querySelectorAll('.delete-form')];
 const postButtons = [...document.querySelectorAll('.post-buttons')];
 const editButtons = [...document.querySelectorAll('.edit-post-btn')];
 const deleteButtons = [...document.querySelectorAll('.delete-post-btn')];
-// const hearts = document.querySelectorAll('.not-liked');
-// const description = document.querySelectorAll('.description');
+const uploadPosts = [...document.querySelectorAll('.upload-post')];
 
 // function for closing big post and removing all added classes
 //to start from new when opening post again
@@ -86,5 +85,22 @@ deleteButtons.forEach(deleteButton => {
             postButtons.classList.remove('hidden');
         });
         exit();
+    });
+});
+
+uploadPosts.forEach(uploadPost => {
+    uploadPost.addEventListener('click', () => {
+        uploadPost.classList.add('hidden');
+        const uploadPostForm = document.querySelector('.upload-post-group');
+
+        const cancel = document.querySelector('.cancel');
+        uploadPostForm.classList.remove('hidden');
+        cancel.classList.remove('hidden');
+
+        cancel.addEventListener('click', () => {
+            uploadPostForm.classList.add('hidden');
+            cancel.classList.add('hidden');
+            uploadPost.classList.remove('hidden');
+        });
     });
 });
