@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 require __DIR__.'/../autoload.php';
 
-if (isset($_POST['post-id'])) {
-    $postId = $_POST['post-id'];
-    $userId = (int) $_SESSION['user']['id'];
+if (isLoggedIn() && isset($_POST['post_id'])) {
+    $postId = $_POST['post_id'];
+    $userId = (int) $user['id'];
     $userFolder = $userId;
 
     $userPosts = getPostsByUser($userId, $pdo);

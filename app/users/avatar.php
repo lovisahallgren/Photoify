@@ -5,7 +5,7 @@ declare(strict_types=1);
 require __DIR__.'/../autoload.php';
 
 // Checks if there is an image to upload
-if (isset($_FILES['avatar'])) {
+if (isLoggedIn() && isset($_FILES['avatar'])) {
     $avatar = $_FILES['avatar'];
     $extension = pathinfo($_FILES['avatar']['name'])['extension'];
     $userName = $_SESSION['user']['username'];

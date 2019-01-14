@@ -29,13 +29,15 @@ if (isset($_POST['name'], $_POST['email'], $_POST['username'], $_POST['password'
             $_SESSION['message'] = 'You already have an account. Please sign in.';
             redirect('/login.php');
         } else {
-
-            $statement = $pdo->prepare('INSERT INTO users(name, email, username, password) VALUES(:name, :email, :username, :password)');
+            $avatar = 'default-avatar.png';
+            // die(var_dump($avatar));
+            $statement = $pdo->prepare('INSERT INTO users(name, email, username, password, avatar) VALUES(:name, :email, :username, :password, :avatar)');
 
             $statement->bindParam(':name', $name, PDO::PARAM_STR);
             $statement->bindParam(':email', $email, PDO::PARAM_STR);
             $statement->bindParam(':username', $username, PDO::PARAM_STR);
             $statement->bindParam(':password', $password, PDO::PARAM_STR);
+            $statement->bindParam(':avatar', $avatar, PDO::PARAM_STR);
 
             $statement->execute();
 

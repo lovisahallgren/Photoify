@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require __DIR__.'/../autoload.php';
 
-if (isset($_POST['description'], $_FILES['image'])) {
+if (isLoggedIn() && isset($_POST['description'], $_FILES['image'])) {
     $description = trim(filter_var($_POST['description'], FILTER_SANITIZE_STRING));
     $image = $_FILES['image'];
 
@@ -15,8 +15,8 @@ if (isset($_POST['description'], $_FILES['image'])) {
         $_SESSION['message'] = 'The uploaded file exceeded the filesize limit.';
     }
     elseif (filter_var($image['name'], FILTER_SANITIZE_STRING)) {
-        if (isset($_SESSION['user']['id'])) {
-            $id = (int) $_SESSION['user']['id'];
+        if (isset($user['id'])) {
+            $id = (int) $user['id'];
             $extension = pathinfo($image['name'])['extension'];
             $userFolder = $id;
             $filePath = __DIR__."/uploads/$userFolder/";

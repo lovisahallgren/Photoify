@@ -22,6 +22,7 @@ if (isset($_POST['username'], $_POST['password'])) {
 
 // Checks if user exists in database
     if (!$user) {
+        $_SESSION['message'] = 'This user does not exist';
         redirect('/login.php');
     }
 

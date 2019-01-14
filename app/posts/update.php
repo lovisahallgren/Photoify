@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require __DIR__.'/../autoload.php';
 
-if (isset($_POST['update-description'], $_POST['post_id'])) {
+if (isLoggedIn() && isset($_POST['update-description'], $_POST['post_id'])) {
     $postId = $_POST['post_id'];
     $updateDescription = trim(filter_var($_POST['update-description'], FILTER_SANITIZE_STRING));
     $userId = (int) $_SESSION['user']['id'];

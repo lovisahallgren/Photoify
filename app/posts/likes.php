@@ -4,14 +4,12 @@ declare(strict_types=1);
 
 require __DIR__.'/../autoload.php';
 
-if (isset($_POST['action'], $_POST['post_id'])) {
+if (isLoggedIn() && isset($_POST['action'], $_POST['post_id'])) {
     $action = $_POST['action'];
     $postId = $_POST['post_id'];
-    $userId = (int) $_SESSION['user']['id'];
+    $userId = (int) $user['id'];
 
     $date = date('d M Y');
-
-
 
     if ($action === 'like') {
 
