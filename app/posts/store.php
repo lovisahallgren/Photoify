@@ -54,6 +54,8 @@ if (isLoggedIn() && isset($_POST['description'], $_FILES['image'])) {
         redirect('/profile.php');
     }
 
+} else {
+    redirect('/');
 }
 
 redirect('/profile.php');

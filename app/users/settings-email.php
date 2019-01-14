@@ -46,6 +46,8 @@ if (isLoggedIn() && isset($_POST['current-email'], $_POST['new-email'], $_POST['
          $_SESSION['message'] = "Old email doesn't match!";
     }
 
+} else {
+    redirect('/');
 }
 
 redirect('/../settings.php');

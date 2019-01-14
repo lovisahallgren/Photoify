@@ -38,4 +38,6 @@ if (isLoggedIn() && isset($_FILES['avatar'])) {
     $_SESSION['message'] = 'Your new avatar has been uploaded!';
     $_SESSION['user']['avatar'] = $avatarName;
     redirect('/../profile.php');
+} else {
+    redirect('/');
 }

@@ -46,6 +46,8 @@ if (isLoggedIn() && isset($_POST['current-password'], $_POST['new-password'], $_
     }
 
 
+} else {
+    redirect('/');
 }
 
 redirect('/../settings.php');
