@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require __DIR__.'/../autoload.php';
 
-if (isset($_POST['confirm-password'])) {
+if (isLoggedIn() && isset($_POST['confirm-password'])) {
 
     $password = trim($_POST['confirm-password']);
 
@@ -82,14 +82,15 @@ if (isset($_POST['confirm-password'])) {
             }
 
         }
+        $_SESSION['message'] = 'Your settings has been updated';
+        redirect('/../profile.php');
 
     } else {
-
         $_SESSION['message'] = 'Incorrect password';
     }
 
 } else {
-    $_SESSION['message'] = 'You need to confirm your changes with your password!';
+    // $_SESSION['message'] = 'You need to confirm your changes with your password!';
 }
 
 redirect('/../settings.php');

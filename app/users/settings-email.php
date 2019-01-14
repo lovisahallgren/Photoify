@@ -5,7 +5,7 @@ declare(strict_types=1);
 require __DIR__.'/../autoload.php';
 
 //Checks if email is set
-if (isset($_POST['current-email'], $_POST['new-email'], $_POST['repeat-new-email'])) {
+if (isLoggedIn() && isset($_POST['current-email'], $_POST['new-email'], $_POST['repeat-new-email'])) {
     $currentEmail = trim(filter_var($_POST['current-email'], FILTER_SANITIZE_EMAIL));
     $newEmail = trim(filter_var($_POST['new-email'], FILTER_SANITIZE_EMAIL));
     $repeatNewEmail = trim(filter_var($_POST['repeat-new-email'], FILTER_SANITIZE_EMAIL));
