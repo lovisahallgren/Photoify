@@ -7,10 +7,12 @@ const postButtons = [...document.querySelectorAll('.post-buttons')];
 const editButtons = [...document.querySelectorAll('.edit-post-btn')];
 const deleteButtons = [...document.querySelectorAll('.delete-post-btn')];
 const uploadPosts = [...document.querySelectorAll('.upload-post')];
+const deleteAccountButtons = [
+    ...document.querySelectorAll('.delete-account-btn'),
+];
 
 // function for closing big post and removing all added classes
 //to start from new when opening post again
-
 function exit() {
     const exit = document.querySelector('.exit');
     exit.classList.remove('hidden');
@@ -42,7 +44,7 @@ smallPosts.forEach(smallPost => {
     });
 });
 
-// if user wants to edit post and clicks button edit form appears
+// if user wants to edit post and clicks button, edit form appears
 editButtons.forEach(editButton => {
     editButton.addEventListener('click', event => {
         const id = event.target.dataset.id;
@@ -64,7 +66,7 @@ editButtons.forEach(editButton => {
     });
 });
 
-//if user wants to delete post and clicks button popup appears to confirm action
+//if user wants to delete post and clicks button, popup appears to confirm action
 deleteButtons.forEach(deleteButton => {
     deleteButton.addEventListener('click', event => {
         const id = event.target.dataset.id;
@@ -88,6 +90,7 @@ deleteButtons.forEach(deleteButton => {
     });
 });
 
+// if user wants to upload post and clicks button, upload form appears
 uploadPosts.forEach(uploadPost => {
     uploadPost.addEventListener('click', () => {
         uploadPost.classList.add('hidden');
@@ -101,6 +104,21 @@ uploadPosts.forEach(uploadPost => {
             uploadPostForm.classList.add('hidden');
             cancel.classList.add('hidden');
             uploadPost.classList.remove('hidden');
+        });
+    });
+});
+
+deleteAccountButtons.forEach(deleteAccount => {
+    deleteAccount.addEventListener('click', () => {
+        const deleteAccountForm = document.querySelector(
+            '.confirm-delete-account'
+        );
+        deleteAccountForm.classList.remove('hidden');
+
+        const cancel = document.querySelector('.cancel-delete-btn');
+
+        cancel.addEventListener('click', () => {
+            deleteAccountForm.classList.add('hidden');
         });
     });
 });
