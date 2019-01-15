@@ -5,11 +5,6 @@ require __DIR__.'/views/header.php';
 ?>
 
 <section class="profile-page">
-
-    <?php if(isset($message)): ?>
-        <p><?= $message ?></p>
-    <?php endif; ?>
-
     <div class="username">
         <?php if (isLoggedIn()) {
             echo $_SESSION['user']['username'];
@@ -17,7 +12,6 @@ require __DIR__.'/views/header.php';
     </div> <!-- username -->
 
     <div class="edit-div">
-
         <div class="avatar">
             <?php if (isLoggedIn()): ?>
                 <img src="<?= '/app/users/avatar/'.$_SESSION['user']['avatar']?>" alt="">

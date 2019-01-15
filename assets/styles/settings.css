@@ -1,6 +1,7 @@
 .settings-page {
     width: 100vw;
-    padding-top: 15%;
+    height: auto;
+    padding: 15% 0;
 }
 
 .avatar-group {
@@ -26,6 +27,7 @@
     flex-direction: column;
     justify-content: space-around;
     margin-bottom: 5%;
+    border: 5px solid var(--input-color);
 }
 
 .settings-group .form-group {
@@ -35,4 +37,21 @@
 .bio-field {
     height: 10vh;
     text-align: center;
+}
+
+.delete-account-btn {
+    width: 60%;
+    margin-left: 20vw;
+}
+
+.confirm-delete-account {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2vh 0 0 -5vw;
+    height: 50%;
+    width: 100%;
+    background-color: var(--input-color);
 }

@@ -4,8 +4,7 @@ require __DIR__.'/views/header.php';
 
 ?>
 
-<!-- <a class="upload-post">Upload post</a> -->
-<p>Upload post</p>
+<h2>Upload post</h2>
 <div class="upload">
     <form class="upload-post-group" action="/app/posts/store.php" method="post" enctype="multipart/form-data">
         <div class="form-group">

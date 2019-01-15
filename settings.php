@@ -2,12 +2,8 @@
 
 require __DIR__.'/views/header.php';
 
-if(isset($message)) {
-    echo $message;
-}
-
 ?>
-<p>Settings</p>
+<h2>Settings</h2>
 <section class="settings-page">
 
     <form class="avatar-group" action="/app/users/avatar.php" method="post" enctype="multipart/form-data">
@@ -46,7 +42,6 @@ if(isset($message)) {
         <input class="form-control" type="email" name="repeat-new-email" placeholder="repeat new email">
 
         <button class="btn-primary" type="submit" name="button">Save</button>
-        <button class="btn-primary" type="submit" name="button">Cancel</button>
     </form><!-- setttings-group -->
 
     <form class="settings-group" action="/app/users/settings-password.php" method="post" enctype="multipart/form-data">
@@ -56,7 +51,6 @@ if(isset($message)) {
             <input class="form-control" type="password" name="repeat-new-password" placeholder="repeat new password">
 
             <button class="btn-primary" type="submit" name="button">Save</button>
-            <button class="btn-primary" type="submit" name="button">Cancel</button>
     </form><!-- settings-group -->
 
     <!-- <label>Delete my account</label> -->
@@ -65,7 +59,7 @@ if(isset($message)) {
         <div class="confirm-delete-account hidden">
             <p>Are you sure you want to delete your account with all it's content?</p>
             <div class="delete-account-buttons">
-                <button class="btn-primary delete-account" type="submit" name="delete-account" value="<?= isLoggedIn() ?>">Delete my account</button>
+                <button class="btn-primary delete-account" type="submit" name="delete-account" value="<?= isLoggedIn() ?>">Delete</button>
                 <button class="btn-primary cancel-delete-btn" type="button" name="button">Cancel</button>
             </div> <!-- delete-account-buttons -->
         </div> <!-- confirm-delete-account -->
