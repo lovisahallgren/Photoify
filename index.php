@@ -10,6 +10,7 @@ require __DIR__.'/views/header.php';
     <?php if (isLoggedIn()) : ?>
         <!-- <p><?= "Welcome, " . $_SESSION['user']['name'] ?></p> -->
 <!-- </article> -->
+
     <section class="feed">
         <?php $allPosts = getAllPosts($pdo);?>
         <?php foreach ($allPosts as $post):?>

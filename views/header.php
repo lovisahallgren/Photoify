@@ -1,14 +1,10 @@
 <?php
 require __DIR__.'/../app/autoload.php';
 
-// if (isLoggedIn()) {
-//     $user = $_SESSION['user'];
-// }
-
-// if (isset($_SESSION['message'])) {
-//     $message = $_SESSION['message'];
-//     unset($_SESSION['message']);
-// }
+if (isset($_SESSION['message'])) {
+    $message = $_SESSION['message'];
+    unset($_SESSION['message']);
+}
 ?>
 
 <!DOCTYPE html>

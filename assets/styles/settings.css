@@ -12,11 +12,11 @@
     height: 20vh;
 }
 
-.avatar-input {
+.avatar-input,
+.image-input {
     background-color: var(--input-color);
     font-size: 2.2vh;
     color: var(--btn-text);
-    /* border: 1px solid black; */
 }
 
 .settings-group {
