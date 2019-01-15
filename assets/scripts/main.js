@@ -1,6 +1,7 @@
 'use strict';
 
 const smallPosts = [...document.querySelectorAll('.small-post')];
+const footer = document.querySelector('footer');
 const editForms = [...document.querySelectorAll('.edit-form')];
 const deleteForms = [...document.querySelectorAll('.delete-form')];
 const postButtons = [...document.querySelectorAll('.post-buttons')];
@@ -11,35 +12,11 @@ const deleteAccountButtons = [
     ...document.querySelectorAll('.delete-account-btn'),
 ];
 
-// function for closing big post and removing all added classes
-//to start from new when opening post again
-function exit() {
-    const exit = document.querySelector('.exit');
-    exit.classList.remove('hidden');
-    exit.addEventListener('click', () => {
-        smallPosts.forEach(smallPost => {
-            smallPost.classList.remove('big-post');
-        });
-        exit.classList.add('hidden');
-
-        editForms.forEach(editForm => {
-            editForm.classList.add('hidden');
-        });
-
-        deleteForms.forEach(deleteForm => {
-            deleteForm.classList.add('hidden');
-        });
-
-        postButtons.forEach(postButton => {
-            postButton.classList.remove('hidden');
-        });
-    });
-}
-
 // when clicking on a small post, make it bigger and show details about post
 smallPosts.forEach(smallPost => {
     smallPost.addEventListener('click', () => {
         smallPost.classList.add('big-post');
+        footer.classList.add('hidden');
         exit();
     });
 });

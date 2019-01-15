@@ -35,15 +35,10 @@ input {
     width: 100%;
     height: 5vh;
     text-align: center;
-    /* border: 1px solid var(--input-color); */
 }
 
 small {
     font-size: 3.5vw;
-}
-
-li {
-    margin: 11%;
 }
 
 .btn-primary {
@@ -86,7 +81,7 @@ a {
 }
 
 footer {
-    width: 100vw;
+    width: 100%;
     height: 10vh;
     margin-top: 5%;
     position: fixed;
@@ -103,7 +98,7 @@ footer {
     /* position: absolute; */
 }
 
-.footer a {
+.footer-link {
     width: 100%;
     height: 100%;
     margin: 0;
@@ -118,31 +113,22 @@ footer {
 
 @media screen and (min-width: 768px) {
     body {
-        width: 50vw;
-        /* padding: 10% 30%; */
+        width: 50%;
+        height: 100%;
+        overflow: scroll;
+        margin: 0 auto;
     }
 
-    .menu-icon {
-        display: none;
+    .feed {
+        width: 80% !important;
     }
 
-    .navbar {
-        /* width: 100%; */
-        height: 10vh;
-        padding: 2vh;
-        position: fixed;
-        top: 0;
+    .like i {
+        margin-right: 32vw !important;
     }
 
-    .navbar-nav {
-        display: flex;
-        justify-content: space-around;
-        list-style: none;
-    }
-
-    .nav-link {
-        color: var(--txt-color);
-        text-decoration: none;
-        font-size: 2vh;
+    .feed-post .post-likes {
+        margin-top: 2.5vh !important;
+        margin-right: 19.5vw;
     }
 }

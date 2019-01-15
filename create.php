@@ -37,6 +37,9 @@ if(isset($message)) {
         <button type="submit" class="btn btn-primary">Sign up</button>
 
     </form> <!-- create-account-form -->
+
+    <a href="/index.php">Already have an account? Click here to sign in!</a>
+
 </article>
 
 <?php require __DIR__.'/views/footer.php'; ?>
