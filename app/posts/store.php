@@ -8,7 +8,7 @@ if (isLoggedIn() && isset($_POST['description'], $_FILES['image'])) {
     $description = trim(filter_var($_POST['description'], FILTER_SANITIZE_STRING));
     $image = $_FILES['image'];
 
-    if ($image['type'] !== 'image/jpeg') {
+    if ($image['type'] !== 'image/jpeg' && $image['type'] !== 'image/png') {
         $_SESSION['message'] = 'The image file type is not allowed.';
     }
     elseif ($image['size'] >= 3000000) {
@@ -22,8 +22,9 @@ if (isLoggedIn() && isset($_POST['description'], $_FILES['image'])) {
             $filePath = __DIR__."/uploads/$userFolder/";
             $dateAndTime = date('d-M-Y-H:i:s');
             $imageName = $id.'_'.$dateAndTime.'.'.$extension;
+            $updatedAt = "";
 
-            $statement = $pdo->prepare("INSERT INTO posts(image, description, user_id) VALUES(:image, :description, :user_id)");
+            $statement = $pdo->prepare("INSERT INTO posts(image, description, user_id, updated_at) VALUES(:image, :description, :user_id, :updated_at)");
 
             if (!$statement) {
                 die(var_dump($pdo->errorInfo()));
@@ -32,6 +33,7 @@ if (isLoggedIn() && isset($_POST['description'], $_FILES['image'])) {
             $statement->bindParam(':image', $imageName, PDO::PARAM_STR);
             $statement->bindParam(':description', $description, PDO::PARAM_STR);
             $statement->bindParam(':user_id', $id, PDO::PARAM_INT);
+            $statement->bindParam(':updated_at', $updated_at, PDO::PARAM_STR);
 
             $statement->execute();
 

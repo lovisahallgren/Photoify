@@ -3,6 +3,8 @@
 const [...likeForms] = document.querySelectorAll('.like-form');
 const [...likeButtons] = document.querySelectorAll('.like-button');
 
+// when clicking on heart, sends data to likes table in database,
+// changing the value of function isLikedByUser
 likeForms.forEach(likeForm => {
     likeForm.addEventListener('submit', event => {
         event.preventDefault();
@@ -28,6 +30,7 @@ likeForms.forEach(likeForm => {
     });
 });
 
+// when clicking on heart, unfilled heart disappears and filled heart appears
 likeButtons.forEach(likeButton => {
     likeButton.addEventListener('click', () => {
         let btnId = likeButton.dataset.id;

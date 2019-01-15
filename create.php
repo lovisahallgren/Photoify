@@ -36,7 +36,7 @@ if(isset($message)) {
 
         <button type="submit" class="btn btn-primary">Sign up</button>
 
-    </form>
+    </form> <!-- create-account-form -->
 </article>
 
 <?php require __DIR__.'/views/footer.php'; ?>

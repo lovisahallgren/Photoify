@@ -90,24 +90,7 @@ deleteButtons.forEach(deleteButton => {
     });
 });
 
-// if user wants to upload post and clicks button, upload form appears
-uploadPosts.forEach(uploadPost => {
-    uploadPost.addEventListener('click', () => {
-        uploadPost.classList.add('hidden');
-        const uploadPostForm = document.querySelector('.upload-post-group');
-
-        const cancel = document.querySelector('.cancel');
-        uploadPostForm.classList.remove('hidden');
-        cancel.classList.remove('hidden');
-
-        cancel.addEventListener('click', () => {
-            uploadPostForm.classList.add('hidden');
-            cancel.classList.add('hidden');
-            uploadPost.classList.remove('hidden');
-        });
-    });
-});
-
+//if user wants to delete account and clicks button, popup appears to confirm action
 deleteAccountButtons.forEach(deleteAccount => {
     deleteAccount.addEventListener('click', () => {
         const deleteAccountForm = document.querySelector(
