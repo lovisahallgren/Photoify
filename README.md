@@ -13,7 +13,7 @@ Built in [Atom](https://atom.io) using HTML, CSS, PHP and vanilla JavaScript
   - [this link](https://github.com/lovisahallgren/Photoify) in GitHub Desktop 
   - `git clone https://github.com/lovisahallgren/Photoify.git` in bash.
 * Open your local web server, for exampel [MAMP](https://www.mamp.info/en/). 
-* Open the `public/index.php` file in your browser.
+* Open the `index.php` file in your browser.
 * Post some images and have fun!
 
 ## Features 
