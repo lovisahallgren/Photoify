@@ -60,7 +60,7 @@ require __DIR__.'/views/header.php';
                 <form class="like-form" method="post">
                     <input type="hidden" name="post_id" value="<?= $post['id']; ?>">
                     <input type="hidden" name="action" value="<?= $isLikedByUser ? 'unlike' : 'like'; ?>">
-                    <button data-id="<?= $post['id']?>"class="like-button" type="submit" name="like">
+                    <button data-id="<?= $post['id']?>"class="like-button hidden" type="submit" name="like">
                         <i class="far fa-heart like-button-<?= $post['id']?> like-button-heart <?= $isLikedByUser ? 'hidden' : '' ?>" ></i>
                         <i class="fas fa-heart like-button-<?= $post['id']?> like-button-heart liked <?= $isLikedByUser ? '' : 'hidden' ?>"></i>
                     </button> <!-- like-button -->

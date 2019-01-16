@@ -42,7 +42,6 @@ if (isset($_POST['name'], $_POST['email'], $_POST['username'], $_POST['password'
             redirect('/create.php');
         } else {
             $avatar = 'default-avatar.png';
-            // die(var_dump($avatar));
             $statement = $pdo->prepare('INSERT INTO users(name, email, username, password, avatar) VALUES(:name, :email, :username, :password, :avatar)');
 
             $statement->bindParam(':name', $name, PDO::PARAM_STR);

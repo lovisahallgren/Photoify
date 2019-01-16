@@ -9,7 +9,7 @@ require __DIR__.'/../autoload.php';
 if (isset($_POST['username'], $_POST['password'])) {
     $username = trim(filter_var($_POST['username'], FILTER_SANITIZE_STRING));
 
-    $statement = $pdo->query('SELECT * FROM users WHERE username = :username');
+    $statement = $pdo->prepare('SELECT * FROM users WHERE username = :username');
 
     if (!$statement) {
         die(var_dump($pdo->errorinfo()));

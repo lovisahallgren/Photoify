@@ -59,6 +59,7 @@ function getPostsByUser(int $id, object $pdo): array
 
     return $posts;
 }
+
 /**
  * Get all posts from all users
  *
