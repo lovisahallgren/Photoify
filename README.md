@@ -16,7 +16,7 @@ Built in [Atom](https://atom.io) using HTML, CSS, PHP and vanilla JavaScript
 * Open the `public/index.php` file in your browser.
 * Post some images and have fun!
 
-## Progress 
+## Features 
 - [x] As a user I should be able to create an account.
 - [x] As a user I should be able to login.
 - [x] As a user I should be able to logout.
