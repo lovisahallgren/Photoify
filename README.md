@@ -26,6 +26,7 @@ Built in [Atom](https://atom.io) using HTML, CSS, PHP and vanilla JavaScript
 - [x] As a user I should be able to edit my posts.
 - [x] As a user I should be able to delete my posts.
 - [x] As a user I should be able to like and dislike posts.
+- [x] As a user I'm able to delete my account along with all posts and comments.
 
 ## Tested 
 * [Rebecca Klaening](https://github.com/RebeccaKlaening)
