@@ -74,11 +74,13 @@ deleteAccountButtons.forEach(deleteAccount => {
             '.confirm-delete-account'
         );
         deleteAccountForm.classList.remove('hidden');
+        deleteAccount.classList.add('hidden');
 
         const cancel = document.querySelector('.cancel-delete-btn');
 
         cancel.addEventListener('click', () => {
             deleteAccountForm.classList.add('hidden');
+            deleteAccount.classList.remove('hidden');
         });
     });
 });

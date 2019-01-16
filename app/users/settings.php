@@ -91,8 +91,8 @@ if (isLoggedIn() && isset($_POST['confirm-password'])) {
 
 }
 // else {
-//     redirect('/');
-//     // $_SESSION['message'] = 'You need to confirm your changes with your password!';
+//     // redirect('/');
+//     $_SESSION['message'] = 'You need to confirm your changes with your password!';
 // }
 
 redirect('/../settings.php');

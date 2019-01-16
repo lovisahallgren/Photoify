@@ -1,12 +1,18 @@
 .settings-page {
     width: 100vw;
     height: auto;
-    padding: 15% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5% 0 35% 0;
 }
 
 .avatar-group {
     width: 100vw;
-    padding-left: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .avatar-group .form-group {
@@ -21,37 +27,67 @@
 }
 
 .settings-group {
-    padding-left: 10%;
-    width: 100vw;
+    width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: center;
     margin-bottom: 5%;
-    border: 5px solid var(--input-color);
+    border-top: 5px solid var(--input-color);
 }
 
 .settings-group .form-group {
     height: 65vh;
 }
 
-.bio-field {
+.settings-group .form-group-email,
+.settings-group .form-group-password {
+    width: 60vw;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.bio-field,
+.description-field {
     height: 10vh;
+    width: 60vw;
     text-align: center;
+}
+
+.delete-account-buttons {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
 }
 
 .delete-account-btn {
     width: 60%;
-    margin-left: 20vw;
+    margin-top: 5%;
+}
+
+.delete-account {
+    background-color: var(--delete-btn);
+}
+
+.cancel-delete-btn {
+    background-color: var(--cancel-btn);
 }
 
 .confirm-delete-account {
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    margin: 2vh 0 0 -5vw;
-    height: 50%;
+    margin-top: 2vh;
+    height: 15vh;
     width: 100%;
     background-color: var(--input-color);
+}
+
+.label-confirm {
+    margin-top: 10%;
 }

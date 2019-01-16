@@ -5,6 +5,9 @@ require __DIR__.'/views/header.php';
 ?>
 
 <section class="profile-page">
+    <?php if(isset($message)) {
+        echo $message;
+    } ?>
     <div class="username">
         <?php if (isLoggedIn()) {
             echo $_SESSION['user']['username'];

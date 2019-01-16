@@ -1,0 +1,139 @@
+@media screen and (min-width: 768px) {
+    body {
+        /* width:   50%; */
+        /* height: 100%; */
+        /* overflow: scroll; */
+        background-color: #fff;
+        margin: 5% auto;
+        margin-bottom: 5vh;
+    }
+
+    .profile-page {
+        width: 40%;
+        height: 100vh;
+        justify-content: flex-start;
+    }
+
+    .username {
+        top: 20%;
+    }
+
+    .settings-page {
+        width: 40%;
+    }
+
+    .big-post {
+        width: 40%;
+        top: 16%;
+        left: 30%;
+        /* height: 100%; */
+    }
+
+    .feed .post-date {
+        margin-left: 2vw;
+        margin-top: 2vh;
+    }
+
+    .feed-post .description {
+        margin-top: 1vh;
+        margin-left: -2vw;
+    }
+
+    .big-post .post-date {
+        margin-left: 4.5vw;
+    }
+
+    .big-post .btn-primary {
+        width: 40%;
+        font-size: 2vh;
+    }
+
+    .big-post .post-likes {
+        left: 33vw;
+    }
+
+    .big-post .like i {
+        right: 1vw;
+        margin-right: 1.5vw !important;
+    }
+
+    .exit {
+        right: 33%;
+        top: 20%;
+    }
+
+    .avatar-input {
+        width: 25%;
+    }
+
+    .bio-field {
+        width: 60%;
+    }
+
+    footer {
+        width: 40%;
+    }
+
+    input {
+        width: 60%;
+    }
+
+    .btn-primary {
+        width: 15vw;
+        font-size: 2vh;
+    }
+
+    .navbar-nav {
+        width: 40%;
+        left: 30vw;
+    }
+
+    .upload {
+        width: 100%;
+    }
+
+    .description-field {
+        width: 60%;
+    }
+
+    .upload-post-group {
+        width: 100%;
+    }
+
+    .form-group {
+        width: 100%;
+    }
+
+    .header img {
+        width: 5%;
+        position: absolute;
+        left: 30vw;
+        top: 7vh;
+    }
+
+    .menu-icon {
+        right: 31vw;
+        top: 9vh;
+    }
+
+    .title {
+        top: 9vh;
+    }
+
+    .feed {
+        width: 40% !important;
+        background-color: var(--bg-color);
+        padding: 5%;
+        border: 1px solid black;
+        overflow: scroll;
+    }
+
+    .like i {
+        margin-right: 37vw !important;
+    }
+
+    .feed-post .post-likes {
+        margin-top: 2.5vh !important;
+        margin-right: 25vw;
+    }
+}

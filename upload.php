@@ -3,8 +3,12 @@
 require __DIR__.'/views/header.php';
 
 ?>
+<section>
 
 <h2>Upload post</h2>
+<?php if(isset($message)) {
+    echo $message;
+} ?>
 <div class="upload">
     <form class="upload-post-group" action="/app/posts/store.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
@@ -21,6 +25,7 @@ require __DIR__.'/views/header.php';
     </form><!-- upload-post-group -->
 </div> <!-- upload -->
 
+</section>
 <?php
 
 require __DIR__.'/views/footer.php';

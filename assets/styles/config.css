@@ -13,5 +13,7 @@
     --txt-color: rgb(0, 0, 0);
     --btn-color: #e64398;
     --btn-text: #f0ebf4;
+    --delete-btn: rgb(215, 64, 64);
+    --cancel-btn: rgb(101, 199, 89);
     --font-fam: 'Fjalla One';
 }

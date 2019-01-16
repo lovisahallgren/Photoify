@@ -3,8 +3,11 @@
 require __DIR__.'/views/header.php';
 
 ?>
-<h2>Settings</h2>
 <section class="settings-page">
+    <h2>Settings</h2>
+    <?php if(isset($message)) {
+        echo $message;
+    } ?>
 
     <form class="avatar-group" action="/app/users/avatar.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
@@ -26,7 +29,7 @@ require __DIR__.'/views/header.php';
             <label for="username">Change username</label>
             <input class="form-control" type="text" name="username" placeholder="<?= $user['username']?>">
 
-            <label for="password-confirm">Confirm with password</label>
+            <label class="label-confirm" for="password-confirm">Confirm with password</label>
             <input class="form-control" type="password" name="confirm-password" placeholder="password">
 
             <button class="btn-primary" type="submit" name="button">Update</button>
@@ -35,26 +38,29 @@ require __DIR__.'/views/header.php';
 
 
     <form class="settings-group" action="/app/users/settings-email.php" method="post" enctype="multipart/form-data">
+        <div class="form-group-email">
+            <label for="email">Change email</label>
+            <input class="form-control" type="email" name="current-email" placeholder="<?= $user['email']?>">
+            <input class="form-control" type="email" name="new-email" placeholder="new email">
+            <input class="form-control" type="email" name="repeat-new-email" placeholder="repeat new email">
 
-        <label for="email">Change email</label>
-        <input class="form-control" type="email" name="current-email" placeholder="<?= $user['email']?>">
-        <input class="form-control" type="email" name="new-email" placeholder="new email">
-        <input class="form-control" type="email" name="repeat-new-email" placeholder="repeat new email">
-
-        <button class="btn-primary" type="submit" name="button">Save</button>
+            <button class="btn-primary" type="submit" name="button">Save</button>
+        </div>
     </form><!-- setttings-group -->
 
     <form class="settings-group" action="/app/users/settings-password.php" method="post" enctype="multipart/form-data">
+        <div class="form-group-password">
             <label for="password">Change password</label>
             <input class="form-control" type="password" name="current-password" placeholder="current password">
             <input class="form-control" type="password" name="new-password" placeholder="new password">
             <input class="form-control" type="password" name="repeat-new-password" placeholder="repeat new password">
 
             <button class="btn-primary" type="submit" name="button">Save</button>
+        </div>
+
     </form><!-- settings-group -->
 
     <!-- <label>Delete my account</label> -->
-    <button class="btn-primary delete-account-btn" type="submit" name="button">Delete account</button>
     <form class="settings-group" action="/app/users/delete.php" method="post" enctype="multipart/form-data">
         <div class="confirm-delete-account hidden">
             <p>Are you sure you want to delete your account with all it's content?</p>
@@ -64,6 +70,7 @@ require __DIR__.'/views/header.php';
             </div> <!-- delete-account-buttons -->
         </div> <!-- confirm-delete-account -->
     </form><!-- settings-group -->
+    <button class="btn-primary delete-account-btn" type="submit" name="button">Delete account</button>
 
 </section> <!-- /settings-page -->
 

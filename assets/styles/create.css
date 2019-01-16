@@ -1,11 +1,10 @@
 .create-account-form {
     width: 100vw;
-    height: 80vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
 .create-account-form .form-group {
-    height: 80vh;
+    height: 60vh;
 }

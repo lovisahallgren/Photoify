@@ -27,7 +27,7 @@ if (isset($_POST['name'], $_POST['email'], $_POST['username'], $_POST['password'
 
         if ($user['email'] == $email && $user['username'] == $username) {
             $_SESSION['message'] = 'You already have an account. Please sign in.';
-            redirect('/login.php');
+            redirect('/index.php');
         } else {
             $avatar = 'default-avatar.png';
             // die(var_dump($avatar));
@@ -44,7 +44,7 @@ if (isset($_POST['name'], $_POST['email'], $_POST['username'], $_POST['password'
             $user = $statement->fetch(PDO::FETCH_ASSOC);
 
             $_SESSION['message'] = 'You created an account! Please login in.';
-            redirect('/login.php');
+            redirect('/index.php');
         }
 
         redirect('/create.php');

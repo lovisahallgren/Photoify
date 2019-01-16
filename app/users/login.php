@@ -22,8 +22,8 @@ if (isset($_POST['username'], $_POST['password'])) {
 
 // Checks if user exists in database
     if (!$user) {
-        $_SESSION['message'] = 'This user does not exist';
-        redirect('/login.php');
+        $_SESSION['message'] = 'This username does not exist';
+        redirect('/index.php');
     }
 
 // Checks if password is the same as in database
@@ -31,6 +31,9 @@ if (isset($_POST['username'], $_POST['password'])) {
         unset($user['password']);
 
         $_SESSION['user'] = $user;
+    } else {
+
+        $_SESSION['message'] = 'Incorrect password';
     }
 }
 

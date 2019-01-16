@@ -5,10 +5,6 @@ if (isset($_SESSION['message'])) {
     $message = $_SESSION['message'];
     unset($_SESSION['message']);
 }
-
-if(isset($message)) {
-    echo $message;
-}
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +24,7 @@ if(isset($message)) {
     <link rel="stylesheet" href="/assets/styles/navigation.css">
     <link rel="stylesheet" href="/assets/styles/profile.css">
     <link rel="stylesheet" href="/assets/styles/home.css">
+    <link rel="stylesheet" href="/assets/styles/desktop.css">
 </head>
 <body>
     <?php require __DIR__.'/navigation.php'; ?>

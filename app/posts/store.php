@@ -50,14 +50,9 @@ if (isLoggedIn() && isset($_POST['description'], $_FILES['image'])) {
         }
 
     }
-    elseif (!isset($_POST['description'], $_FILES['image'])) {
-
-        $_SESSION['message'] = 'You need to choose an image to upload.';
-        redirect('/profile.php');
-    }
 
 } else {
     redirect('/');
 }
 
-redirect('/profile.php');
+redirect('/upload.php');
