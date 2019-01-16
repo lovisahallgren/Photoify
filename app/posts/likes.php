@@ -28,7 +28,6 @@ if (isLoggedIn() && isset($_POST['action'], $_POST['post_id'])) {
 
         $likes = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-        // die(var_dump($likes));
     } else {
         $statement = $pdo->prepare('DELETE FROM likes WHERE user_id = :user_id AND post_id = :post_id');
 

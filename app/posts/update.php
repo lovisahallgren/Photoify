@@ -28,8 +28,3 @@ if (isLoggedIn() && isset($_POST['update-description'], $_POST['post_id'])) {
 }
 $_SESSION['message'] = 'Your changes has been updated';
 redirect('/profile.php');
-        // else {
-        //     $_SESSION['message'] = 'Your changes didn\'t update. Please try again.';
-        //
-        // }
-// }

@@ -94,9 +94,7 @@
     top: 10%;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
-    /* z-index: -1; */
     transition: transform 0.4s ease;
     padding: 10% 0;
 }
@@ -193,7 +191,6 @@
     width: 90%;
     display: flex;
     justify-content: space-around;
-    /* align-items: flex-end; */
 }
 
 .edit-form {
@@ -281,15 +278,12 @@
 
 .upload {
     padding-bottom: 10%;
-    /* width: 100%; */
-    /* margin-left: 5%; */
     width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     margin-bottom: 5%;
-    /* border-top: 5px solid var(--input-color); */
 }
 
 .upload-post {

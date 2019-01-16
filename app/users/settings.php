@@ -17,7 +17,6 @@ if (isLoggedIn() && isset($_POST['confirm-password'])) {
     $statement->execute();
 
     $user = $statement->fetch(PDO::FETCH_ASSOC);
-    // die(var_dump($user));
 
     if (password_verify($password, $user['password'])) {
 
@@ -26,7 +25,8 @@ if (isLoggedIn() && isset($_POST['confirm-password'])) {
         } else {
             $biography = trim(filter_var($_POST['biography'], FILTER_SANITIZE_STRING));
 
-            $statement = $pdo->prepare('UPDATE users SET biography = :biography WHERE id = :id');
+            $statement = $pdo->prepare('UPDATE users SET biography = :biography
+                                        WHERE id = :id');
 
             $statement->bindParam(':biography', $biography, PDO::PARAM_STR);
             $statement->bindParam(':id', $id, PDO::PARAM_STR);
@@ -57,7 +57,8 @@ if (isLoggedIn() && isset($_POST['confirm-password'])) {
         } elseif (isset($_POST['username'])) {
             $username = $_POST['username'];
 
-            $statement = $pdo->prepare('SELECT username FROM users WHERE username = :username');
+            $statement = $pdo->prepare('SELECT username FROM users
+                                        WHERE username = :username');
 
             $statement->bindParam(':username', $username, PDO::PARAM_STR);
 
@@ -70,7 +71,8 @@ if (isLoggedIn() && isset($_POST['confirm-password'])) {
             } else {
                 $changedUsername = trim(filter_var($username, FILTER_SANITIZE_STRING));
 
-                $statement = $pdo->prepare('UPDATE users SET username = :username WHERE id = :id');
+                $statement = $pdo->prepare('UPDATE users SET username = :username
+                                            WHERE id = :id');
 
                 $statement->bindParam(':username', $changedUsername, PDO::PARAM_STR);
                 $statement->bindParam(':id', $id, PDO::PARAM_STR);
@@ -78,9 +80,7 @@ if (isLoggedIn() && isset($_POST['confirm-password'])) {
                 $statement->execute();
 
                 $_SESSION['user']['username'] = $username;
-
             }
-
         }
         $_SESSION['message'] = 'Your settings has been updated';
         redirect('/../profile.php');
@@ -90,9 +90,5 @@ if (isLoggedIn() && isset($_POST['confirm-password'])) {
     }
 
 }
-// else {
-//     // redirect('/');
-//     $_SESSION['message'] = 'You need to confirm your changes with your password!';
-// }
 
 redirect('/../settings.php');

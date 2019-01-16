@@ -5,6 +5,7 @@ declare(strict_types=1);
 require __DIR__.'/../autoload.php';
 
 // Checks if both email and password is set
+
 if (isset($_POST['username'], $_POST['password'])) {
     $username = trim(filter_var($_POST['username'], FILTER_SANITIZE_STRING));
 

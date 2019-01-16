@@ -33,8 +33,6 @@ if (isLoggedIn() && isset($_POST['delete-account'])) {
 
     $statement->execute();
 
-
-
     $statement = $pdo->prepare('DELETE FROM likes WHERE user_id = :id');
 
     $statement->bindParam(':id', $id, PDO::PARAM_INT);

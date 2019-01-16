@@ -25,9 +25,21 @@ if (isset($_POST['name'], $_POST['email'], $_POST['username'], $_POST['password'
 
         $user = $statement->fetch(PDO::FETCH_ASSOC);
 
+        $statement1 = $pdo->prepare('SELECT username FROM users WHERE username = :username');
+
+        $statement1->bindParam(':username', $username, PDO::PARAM_STR);
+
+        $statement1->execute();
+
+        $usernamesDB = $statement1->fetch(PDO::FETCH_ASSOC);
+
         if ($user['email'] == $email && $user['username'] == $username) {
             $_SESSION['message'] = 'You already have an account. Please sign in.';
             redirect('/index.php');
+        } elseif ($usernamesDB['username'] == $username) {
+
+            $_SESSION['message'] = 'Sorry, this username is taken';
+            redirect('/create.php');
         } else {
             $avatar = 'default-avatar.png';
             // die(var_dump($avatar));

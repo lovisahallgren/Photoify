@@ -46,10 +46,10 @@ require __DIR__.'/views/header.php';
     <form class="login-form" action="app/users/login.php" method="post">
         <div class="form-group">
             <label for="username">Username</label>
-            <input class="form-control" type="username" name="username" required>
+            <input class="form-control" type="username" name="username" placeholder ="username">
 
             <label for="password">Password</label>
-            <input class="form-control" type="password" name="password" required>
+            <input class="form-control" type="password" name="password" placeholder ="password">
         </div><!-- /form-group -->
 
         <button type="submit" class="btn btn-primary">Login</button>
@@ -60,10 +60,8 @@ require __DIR__.'/views/header.php';
 </section> <!-- login-page -->
 <?php endif; ?>
 
-
-
-
 <?php
 
 require __DIR__.'/views/footer.php';
+
 ?>

@@ -1,7 +1,6 @@
 body {
     background-color: var(--bg-color);
     width: 100vw;
-    /* height: auto; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,7 +21,6 @@ section {
 
 article {
     width: 100vw;
-    /* height: 100vh; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -74,7 +72,6 @@ small {
 
 img {
     width: 50%;
-    /* height: 50%; */
 }
 
 a {
@@ -107,7 +104,6 @@ footer {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* position: absolute; */
 }
 
 .footer-link {

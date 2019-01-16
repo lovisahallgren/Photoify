@@ -1,8 +1,5 @@
 @media screen and (min-width: 768px) {
     body {
-        /* width:   50%; */
-        /* height: 100%; */
-        /* overflow: scroll; */
         background-color: #fff;
         margin: 5% auto;
         margin-bottom: 5vh;
@@ -22,11 +19,26 @@
         width: 40%;
     }
 
+    .login-page {
+        width: 40%;
+    }
+
+    .login-page .form-group {
+        width: 40%;
+    }
+
+    .create-account-form {
+        width: 100%;
+    }
+
+    a {
+        font-size: 2vh;
+    }
+
     .big-post {
         width: 40%;
         top: 16%;
         left: 30%;
-        /* height: 100%; */
     }
 
     .feed .post-date {
