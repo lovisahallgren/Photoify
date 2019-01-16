@@ -35,4 +35,4 @@ Built in [Atom](https://atom.io) using HTML, CSS, PHP and vanilla JavaScript
 * [Per Baltzar](https://github.com/perbaltzar)
 
 ## License
-[MIT](https://github.com/lovisahallgren/FastSecurity/blob/master/LICENSE) © Lovisa Hallgren 
+[MIT](https://github.com/lovisahallgren/Photoify/blob/master/LICENSE) © Lovisa Hallgren 
