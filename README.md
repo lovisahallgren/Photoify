@@ -13,10 +13,10 @@ Built in [Atom](https://atom.io) using HTML, CSS, PHP and vanilla JavaScript
   - [this link](https://github.com/lovisahallgren/Photoify) in GitHub Desktop 
   - `git clone https://github.com/lovisahallgren/Photoify.git` in bash.
 * Open your local web server, for exampel [MAMP](https://www.mamp.info/en/). 
-* Open the `public/index.php` file in your browser.
+* Open the `index.php` file in your browser.
 * Post some images and have fun!
 
-## Progress 
+## Features 
 - [x] As a user I should be able to create an account.
 - [x] As a user I should be able to login.
 - [x] As a user I should be able to logout.
@@ -35,4 +35,4 @@ Built in [Atom](https://atom.io) using HTML, CSS, PHP and vanilla JavaScript
 * [Per Baltzar](https://github.com/perbaltzar)
 
 ## License
-[MIT](https://github.com/lovisahallgren/FastSecurity/blob/master/LICENSE) © Lovisa Hallgren 
+[MIT](https://github.com/lovisahallgren/Photoify/blob/master/LICENSE) © Lovisa Hallgren 
