@@ -18,11 +18,6 @@ if (!function_exists('redirect'))
     }
 }
 
-if (isLoggedIn())
-{
-    $user = $_SESSION['user'];
-}
-
 /**
  * Checks if user is logged in
  *
@@ -35,6 +30,10 @@ function isLoggedIn(): bool
     return isset($_SESSION['user']);
 }
 
+if (isLoggedIn())
+{
+    $user = $_SESSION['user'];
+}
 /**
  * Get all posts from given user from posts table in database
  *

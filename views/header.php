@@ -1,10 +1,6 @@
 <?php
 require __DIR__.'/../app/autoload.php';
 
-if (isset($_SESSION['message'])) {
-    $message = $_SESSION['message'];
-    unset($_SESSION['message']);
-}
 ?>
 
 <!DOCTYPE html>
@@ -28,3 +24,4 @@ if (isset($_SESSION['message'])) {
 </head>
 <body>
     <?php require __DIR__.'/navigation.php'; ?>
+

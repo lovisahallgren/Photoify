@@ -32,7 +32,7 @@ if (isLoggedIn() && isset($_POST['post_id'])) {
             $_SESSION['message'] = 'Your post has been deleted';
         }
     }
-} else {
-    redirect('/');
+    redirect('/profile.php');
 }
-redirect('/profile.php');
+
+redirect('/');

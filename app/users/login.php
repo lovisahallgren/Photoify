@@ -32,6 +32,7 @@ if (isset($_POST['username'], $_POST['password'])) {
         unset($user['password']);
 
         $_SESSION['user'] = $user;
+
     } else {
 
         $_SESSION['message'] = 'Incorrect password';

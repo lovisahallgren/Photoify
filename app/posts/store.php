@@ -51,8 +51,7 @@ if (isLoggedIn() && isset($_POST['description'], $_FILES['image'])) {
 
     }
 
-} else {
-    redirect('/');
 }
 
-redirect('/upload.php');
+redirect('/');
+// redirect('/upload.php');

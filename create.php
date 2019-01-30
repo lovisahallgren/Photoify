@@ -1,14 +1,13 @@
 <?php
 
 require __DIR__.'/views/header.php';
-
- ?>
+?>
 
 <section>
     <h2>Create account</h2>
-    <?php if(isset($message)) {
-        echo $message;
-    } ?>
+
+    <?php require __DIR__.'/views/message.php'; ?>
+
     <form class="create-account-form" action="app/users/create.php" method="post">
         <div class="form-group">
             <label for="name">Name</label>

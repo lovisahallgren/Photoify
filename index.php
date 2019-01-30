@@ -39,9 +39,7 @@ require __DIR__.'/views/header.php';
 
 <?php else : ?>
 <section class="login-page">
-    <?php if(isset($message)) {
-        echo $message;
-    } ?>
+    <?php require __DIR__.'/views/message.php'; ?>
 
     <form class="login-form" action="app/users/login.php" method="post">
         <div class="form-group">

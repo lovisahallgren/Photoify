@@ -5,9 +5,8 @@ require __DIR__.'/views/header.php';
 ?>
 <section class="settings-page">
     <h2>Settings</h2>
-    <?php if(isset($message)) {
-        echo $message;
-    } ?>
+
+    <?php require __DIR__.'/views/message.php'; ?>
 
     <form class="avatar-group" action="/app/users/avatar.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
