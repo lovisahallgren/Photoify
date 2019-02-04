@@ -7,13 +7,12 @@ require __DIR__.'/../autoload.php';
 if (isLoggedIn() && isset($_POST['delete-account'])) {
     $id = (int) $user['id'];
 
-    if ($user['avatar'] !== 'default-avatar.png')
-    {
+    if ($user['avatar'] !== 'default-avatar.png') {
         unlink(__DIR__.'/avatar/'.$user['avatar']);
     }
     $posts = getPostsByUser($id, $pdo);
 
-    foreach($posts as $post) {
+    foreach ($posts as $post) {
         unlink(__DIR__.'/../posts/uploads/'.$user['id'].'/'.$post['image']);
     }
     rmdir(__DIR__.'/../posts/uploads/'.$user['id']);
@@ -38,7 +37,6 @@ if (isLoggedIn() && isset($_POST['delete-account'])) {
     $statement->bindParam(':id', $id, PDO::PARAM_INT);
 
     $statement->execute();
-
 }
 
 session_destroy();

@@ -14,15 +14,14 @@ if (isLoggedIn() && isset($_FILES['avatar'])) {
 
     $avatarName = $userName.'.'.$extension;
 
-// Checks if image is of right kind and isn't to big
+    // Checks if image is of right kind and isn't to big
     if ($avatar['type'] !== 'image/jpeg' && $avatar['type'] !== 'image/png') {
         $_SESSION['message'] = 'The image file type is not allowed.';
     } elseif ($avatar['size'] >= 3000000) {
         $_SESSION['message'] = 'The uploaded file exceeded the filesize limit.';
     } else {
-
         filter_var($avatar['name'], FILTER_SANITIZE_STRING);
-// Updates the database column avatar with the set image
+        // Updates the database column avatar with the set image
         $statement = $pdo->prepare('UPDATE users SET avatar = :avatar WHERE id = :id');
 
         $statement->bindParam(':avatar', $avatarName, PDO::PARAM_STR);
@@ -30,11 +29,10 @@ if (isLoggedIn() && isset($_FILES['avatar'])) {
 
         $statement->execute();
 
-// Moves image to directory
+        // Moves image to directory
         move_uploaded_file($avatar['tmp_name'], $filePath.$avatarName);
-
     }
-// Updates session variable to use the newly set image as avatar
+    // Updates session variable to use the newly set image as avatar
     $_SESSION['message'] = 'Your new avatar has been uploaded!';
     $_SESSION['user']['avatar'] = $avatarName;
     redirect('/../profile.php');

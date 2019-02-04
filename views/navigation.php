@@ -1,4 +1,4 @@
-<?php if(isLoggedIn()): ?>
+<?php if (isLoggedIn()): ?>
     <div class="header">
         <a class="logo" href="./index.php">
             <img src="/../logo.png" alt="Logo">

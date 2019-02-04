@@ -2,8 +2,7 @@
 
 declare(strict_types=1);
 
-if (!function_exists('redirect'))
-{
+if (!function_exists('redirect')) {
     /**
      * Redirect the user to given path.
      *
@@ -30,8 +29,7 @@ function isLoggedIn(): bool
     return isset($_SESSION['user']);
 }
 
-if (isLoggedIn())
-{
+if (isLoggedIn()) {
     $user = $_SESSION['user'];
 }
 /**

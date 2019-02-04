@@ -28,7 +28,7 @@ if (isLoggedIn() && isset($_POST['current-password'], $_POST['new-password'], $_
 
     // If yes update password in database
             $statement = $pdo->prepare('UPDATE users SET password = :password WHERE id = :id');
-    // hash password to database
+            // hash password to database
             $statement->bindParam(':password', password_hash($newPassword, PASSWORD_DEFAULT), PDO::PARAM_STR);
             $statement->bindParam(':id', $id, PDO::PARAM_INT);
 
@@ -42,9 +42,8 @@ if (isLoggedIn() && isset($_POST['current-password'], $_POST['new-password'], $_
 
         // If old password don't match database password, die page and echo something
     } else {
-         $_SESSION['message'] = "Old password doesn't match!";
+        $_SESSION['message'] = "Old password doesn't match!";
     }
-
 } else {
     redirect('/');
 }

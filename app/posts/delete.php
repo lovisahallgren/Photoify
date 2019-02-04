@@ -13,7 +13,6 @@ if (isLoggedIn() && isset($_POST['post_id'])) {
 
     foreach ($userPosts as $userPost) {
         if ($postId == $userPost['id']) {
-
             $imageName = $userPost['image'];
 
             $statement = $pdo->prepare('DELETE FROM posts WHERE id = :id AND image = :image');

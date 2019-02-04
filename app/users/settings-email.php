@@ -19,7 +19,7 @@ if (isLoggedIn() && isset($_POST['current-email'], $_POST['new-email'], $_POST['
 
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-// Checks if typed in current email matches email in database
+    // Checks if typed in current email matches email in database
     if ($currentEmail == $user['email']) {
 
 // Checks if twice typed in new email matches
@@ -43,9 +43,8 @@ if (isLoggedIn() && isset($_POST['current-email'], $_POST['new-email'], $_POST['
 
         // If old email don't match database email, die page and echo something
     } else {
-         $_SESSION['message'] = "Old email doesn't match!";
+        $_SESSION['message'] = "Old email doesn't match!";
     }
-
 } else {
     redirect('/');
 }

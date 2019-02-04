@@ -5,7 +5,6 @@ declare(strict_types=1);
 require __DIR__.'/../autoload.php';
 
 if (isLoggedIn() && isset($_POST['confirm-password'])) {
-
     $password = trim($_POST['confirm-password']);
 
     $id = (int) $_SESSION['user']['id'];
@@ -19,8 +18,7 @@ if (isLoggedIn() && isset($_POST['confirm-password'])) {
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
     if (password_verify($password, $user['password'])) {
-
-        if ($_POST['biography'] == "" ) {
+        if ($_POST['biography'] == "") {
             $biography = $_SESSION['user']['biography'];
         } else {
             $biography = trim(filter_var($_POST['biography'], FILTER_SANITIZE_STRING));
@@ -34,10 +32,9 @@ if (isLoggedIn() && isset($_POST['confirm-password'])) {
             $statement->execute();
 
             $_SESSION['user']['biography'] = $biography;
-
         }
 
-        if ($_POST['name'] == "" ) {
+        if ($_POST['name'] == "") {
             $name = $_SESSION['user']['name'];
         } else {
             $name = trim(filter_var($_POST['name'], FILTER_SANITIZE_STRING));
@@ -84,11 +81,9 @@ if (isLoggedIn() && isset($_POST['confirm-password'])) {
         }
         $_SESSION['message'] = 'Your settings has been updated';
         redirect('/../profile.php');
-
     } else {
         $_SESSION['message'] = 'Incorrect password';
     }
-
 }
 
 redirect('/../settings.php');

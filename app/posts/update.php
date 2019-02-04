@@ -22,7 +22,6 @@ if (isLoggedIn() && isset($_POST['update-description'], $_POST['post_id'])) {
     $statement->bindParam(':id', $postId, PDO::PARAM_INT);
 
     $statement->execute();
-
 } else {
     redirect('/');
 }

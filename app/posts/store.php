@@ -10,11 +10,9 @@ if (isLoggedIn() && isset($_POST['description'], $_FILES['image'])) {
 
     if ($image['type'] !== 'image/jpeg' && $image['type'] !== 'image/png') {
         $_SESSION['message'] = 'The image file type is not allowed.';
-    }
-    elseif ($image['size'] >= 3000000) {
+    } elseif ($image['size'] >= 3000000) {
         $_SESSION['message'] = 'The uploaded file exceeded the filesize limit.';
-    }
-    elseif (filter_var($image['name'], FILTER_SANITIZE_STRING)) {
+    } elseif (filter_var($image['name'], FILTER_SANITIZE_STRING)) {
         if (isset($user['id'])) {
             $id = (int) $user['id'];
             $extension = pathinfo($image['name'])['extension'];
@@ -48,9 +46,7 @@ if (isLoggedIn() && isset($_POST['description'], $_FILES['image'])) {
 
             redirect('/profile.php');
         }
-
     }
-
 }
 
 redirect('/');

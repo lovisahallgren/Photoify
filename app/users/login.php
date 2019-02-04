@@ -21,20 +21,18 @@ if (isset($_POST['username'], $_POST['password'])) {
 
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-// Checks if user exists in database
+    // Checks if user exists in database
     if (!$user) {
         $_SESSION['message'] = 'This username does not exist';
         redirect('/index.php');
     }
 
-// Checks if password is the same as in database
+    // Checks if password is the same as in database
     if (password_verify($_POST['password'], $user['password'])) {
         unset($user['password']);
 
         $_SESSION['user'] = $user;
-
     } else {
-
         $_SESSION['message'] = 'Incorrect password';
     }
 }

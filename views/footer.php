@@ -1,4 +1,4 @@
-<?php if(isLoggedIn()): ?>
+<?php if (isLoggedIn()): ?>
 
         <footer>
             <div class="footer">

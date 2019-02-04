@@ -5,5 +5,3 @@ if (isset($_SESSION['message'])) {
     echo $message;
     unset($_SESSION['message']);
 }
-
-?>

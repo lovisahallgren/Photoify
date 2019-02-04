@@ -10,8 +10,8 @@ require __DIR__.'/views/header.php';
 
     <div class="username">
         <?php if (isLoggedIn()) {
-            echo $_SESSION['user']['username'];
-        }?>
+    echo $_SESSION['user']['username'];
+}?>
     </div> <!-- username -->
 
     <div class="edit-div">
@@ -29,14 +29,14 @@ require __DIR__.'/views/header.php';
     <div class="info">
         <div class="name">
             <?php if (isLoggedIn()) {
-                echo $_SESSION['user']['name'];
-            } ?>
+    echo $_SESSION['user']['name'];
+} ?>
         </div> <!-- name -->
 
         <div class="biography">
             <?php if (isLoggedIn()) {
-                echo $_SESSION['user']['biography'];
-            } ?>
+    echo $_SESSION['user']['biography'];
+} ?>
         </div> <!-- biography -->
     </div> <!-- info -->
 
@@ -50,12 +50,12 @@ require __DIR__.'/views/header.php';
             <img src="<?= 'app/posts/uploads/'.$_SESSION['user']['id'].'/'.$post['image']?>" alt="">
             <div data-id="<?= $post['id']?>" class="like">
                 <p class="post-date"><?php if ($post['updated_at']) {
-                    $date = explode(" ", $post['updated_at']);
-                    echo "Edited: ".$date[0];
-                } else {
-                    $date = explode(" ", $post['created_at']);
-                    echo $date[0];
-                }?></p> <!-- post-date -->
+    $date = explode(" ", $post['updated_at']);
+    echo "Edited: ".$date[0];
+} else {
+    $date = explode(" ", $post['created_at']);
+    echo $date[0];
+}?></p> <!-- post-date -->
                 <p class="post-likes likes-post<?= $post['id']; ?>"><?= $likes ?></p>
                 <form class="like-form" method="post">
                     <input type="hidden" name="post_id" value="<?= $post['id']; ?>">

@@ -6,7 +6,6 @@ require __DIR__.'/../autoload.php';
 
 
 if (isset($_POST['name'], $_POST['email'], $_POST['username'], $_POST['password'], $_POST['repeat-password'])) {
-
     if ($_POST['password'] !== $_POST['repeat-password']) {
         $_SESSION['message'] = "Your passwords don't match!";
         redirect('/create.php');
@@ -48,5 +47,4 @@ if (isset($_POST['name'], $_POST['email'], $_POST['username'], $_POST['password'
 
         redirect('/create.php');
     }
-
 }
