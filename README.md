@@ -2,6 +2,8 @@
 
 <img src="https://media.giphy.com/media/sMydvzykOp70c/giphy.gif" width="100%">
 
+[![StyleCI](https://github.styleci.io/repos/161142847/shield?branch=master)](https://github.styleci.io/repos/161142847)
+
 ## Assignment
 The assignment was to build an Instagram clone
 
